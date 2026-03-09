@@ -113,7 +113,7 @@
          </font>
         </property>
         <property name="text">
-         <string> Last Name</string>
+         <string> Name</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="txt_lastName">
@@ -121,7 +121,7 @@
          <rect>
           <x>10</x>
           <y>170</y>
-          <width>350</width>
+          <width>400</width>
           <height>20</height>
          </rect>
         </property>
@@ -132,44 +132,6 @@
         </property>
         <property name="text">
          <string/>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="txt_firstName">
-        <property name="geometry">
-         <rect>
-          <x>410</x>
-          <y>170</y>
-          <width>300</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QLabel" name="lbl_firstName">
-        <property name="geometry">
-         <rect>
-          <x>410</x>
-          <y>145</y>
-          <width>115</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string> First Name</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="txt_addressLine1">
@@ -210,49 +172,11 @@
          <string> Address Line 1</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="txt_addressLine2">
+       <widget class="QLineEdit" name="txt_email">
         <property name="geometry">
          <rect>
           <x>460</x>
           <y>230</y>
-          <width>400</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QLabel" name="lbl_addressLine2">
-        <property name="geometry">
-         <rect>
-          <x>460</x>
-          <y>205</y>
-          <width>150</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string> Address Line 2</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="txt_email">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>290</y>
           <width>180</width>
           <height>20</height>
          </rect>
@@ -269,8 +193,8 @@
        <widget class="QLabel" name="lbl_email">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>265</y>
+          <x>460</x>
+          <y>205</y>
           <width>70</width>
           <height>20</height>
          </rect>
@@ -289,8 +213,8 @@
        <widget class="QLineEdit" name="txt_mobile">
         <property name="geometry">
          <rect>
-          <x>240</x>
-          <y>290</y>
+          <x>690</x>
+          <y>230</y>
           <width>180</width>
           <height>20</height>
          </rect>
@@ -307,8 +231,8 @@
        <widget class="QLabel" name="lbl_mobile">
         <property name="geometry">
          <rect>
-          <x>240</x>
-          <y>265</y>
+          <x>690</x>
+          <y>205</y>
           <width>70</width>
           <height>20</height>
          </rect>
@@ -327,8 +251,8 @@
        <widget class="QLabel" name="lbl_userType">
         <property name="geometry">
          <rect>
-          <x>10</x>
-          <y>325</y>
+          <x>460</x>
+          <y>145</y>
           <width>110</width>
           <height>20</height>
          </rect>
@@ -344,28 +268,13 @@
          <string> User Type</string>
         </property>
        </widget>
-       <widget class="QComboBox" name="cmb_userType">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>350</y>
-          <width>120</width>
-          <height>20</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-       </widget>
        <widget class="QTableWidget" name="tbl_users">
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>420</y>
+          <y>340</y>
           <width>940</width>
-          <height>411</height>
+          <height>490</height>
          </rect>
         </property>
         <property name="font">
@@ -373,6 +282,250 @@
           <pointsize>12</pointsize>
          </font>
         </property>
+        <attribute name="verticalHeaderVisible">
+         <bool>false</bool>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>Name</string>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Address</string>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>E-mail</string>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Mobile</string>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>User Type</string>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+        </column>
+       </widget>
+       <widget class="QRadioButton" name="radioButton">
+        <property name="geometry">
+         <rect>
+          <x>460</x>
+          <y>165</y>
+          <width>100</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Employee</string>
+        </property>
+       </widget>
+       <widget class="QRadioButton" name="radioButton_2">
+        <property name="geometry">
+         <rect>
+          <x>570</x>
+          <y>165</y>
+          <width>82</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Client</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>300</y>
+          <width>701</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>80</width>
+             <height>25</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_saveUser">
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Save</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_modifyUser">
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Modify</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_clearUser">
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Clear</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_deleteUser">
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Delete</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>80</width>
+             <height>25</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
        </widget>
       </widget>
       <widget class="QWidget" name="tasksTab">
@@ -492,7 +645,7 @@
          <rect>
           <x>10</x>
           <y>290</y>
-          <width>450</width>
+          <width>350</width>
           <height>20</height>
          </rect>
         </property>
@@ -528,7 +681,7 @@
        <widget class="QLabel" name="lbl_serviceStatus">
         <property name="geometry">
          <rect>
-          <x>740</x>
+          <x>720</x>
           <y>265</y>
           <width>70</width>
           <height>20</height>
@@ -548,9 +701,9 @@
        <widget class="QLineEdit" name="txt_hoursTaken">
         <property name="geometry">
          <rect>
-          <x>510</x>
+          <x>520</x>
           <y>290</y>
-          <width>180</width>
+          <width>140</width>
           <height>20</height>
          </rect>
         </property>
@@ -566,7 +719,7 @@
        <widget class="QLabel" name="lbl_hoursTaken">
         <property name="geometry">
          <rect>
-          <x>510</x>
+          <x>520</x>
           <y>265</y>
           <width>70</width>
           <height>20</height>
@@ -586,7 +739,7 @@
        <widget class="QComboBox" name="cmb_serviceStatus">
         <property name="geometry">
          <rect>
-          <x>740</x>
+          <x>720</x>
           <y>290</y>
           <width>180</width>
           <height>20</height>
@@ -602,15 +755,267 @@
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>370</y>
+          <y>380</y>
           <width>940</width>
-          <height>461</height>
+          <height>450</height>
          </rect>
         </property>
         <property name="font">
          <font>
           <pointsize>12</pointsize>
          </font>
+        </property>
+        <column>
+         <property name="text">
+          <string>Employee</string>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Client</string>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Service</string>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>€/H</string>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Hours</string>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Status</string>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+        </column>
+       </widget>
+       <widget class="QWidget" name="horizontalLayoutWidget_2">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>340</y>
+          <width>701</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>80</width>
+             <height>25</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_saveTask">
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Save</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_modifyTask">
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Modify</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_clearTask">
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Clear</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btn_deleteTask">
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Delete</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>80</width>
+             <height>25</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QLabel" name="lbl_priceHour">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>265</y>
+          <width>70</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string> €/H</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txt_priceHour">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>290</y>
+          <width>100</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
       </widget>
