@@ -17,11 +17,12 @@ class Connection:
         """
 
 
-        dbURL = "./bbdd/bbdd.sqlite"
+        dbURL = "../bbdd/bbdd.sqlite"
 
         if not os.path.isfile(dbURL):
             QtWidgets.QMessageBox.critical(None, "Error", "The database file does not exist.",
                                            QtWidgets.QMessageBox.StandardButton.Cancel)
+            return False
 
         db = QtSql.QSqlDatabase.addDatabase("QSQLITE")
         db.setDatabaseName(dbURL)
@@ -29,6 +30,7 @@ class Connection:
         if not db.open():
             QtWidgets.QMessageBox.critical(None, "Error", "We could not connect to the database.",
                                            QtWidgets.QMessageBox.StandardButton.Cancel)
+            return False
 
         query = QtSql.QSqlQuery()
         query.exec("SELECT  name"
@@ -38,7 +40,9 @@ class Connection:
         if not query.next():
             QtWidgets.QMessageBox.critical(None, "Error", "The database is empty or invalid",
                                            QtWidgets.QMessageBox.StandardButton.Cancel)
+            return False
 
         else:
             QtWidgets.QMessageBox.information(None, "Info", "We successfully connected to the database.",
                                               QtWidgets.QMessageBox.StandardButton.Ok)
+            return True
