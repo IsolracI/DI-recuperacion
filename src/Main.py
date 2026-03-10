@@ -1,5 +1,6 @@
 from pythonUI.MainWindow import Ui_MainWindow
 from src.Connection import *
+from src.Users import *
 from PyQt6 import QtWidgets
 from src import Globals
 import sys
@@ -10,8 +11,16 @@ class Main(QtWidgets.QMainWindow):
         Globals.ui = Ui_MainWindow()
         Globals.ui.setupUi(self)
 
+               ###################
+        ####   ##-## GENERAL ##-##   ####
+               ###################
+
         # DB Connection
         Connection.dbConnection()
+
+               #################
+        ####   ##-## USERS ##-##   ####
+               #################
 
 
 if __name__ == "__main__":

@@ -272,9 +272,9 @@
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>340</y>
+          <y>380</y>
           <width>940</width>
-          <height>490</height>
+          <height>450</height>
          </rect>
         </property>
         <property name="font">
@@ -528,6 +528,120 @@
           </spacer>
          </item>
         </layout>
+       </widget>
+       <widget class="QPushButton" name="btn_showAll">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>351</y>
+          <width>85</width>
+          <height>30</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 1px solid black;
+border-radius: 0px;</string>
+        </property>
+        <property name="text">
+         <string>All</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+        <property name="autoDefault">
+         <bool>true</bool>
+        </property>
+        <property name="default">
+         <bool>false</bool>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_showClients">
+        <property name="geometry">
+         <rect>
+          <x>178</x>
+          <y>351</y>
+          <width>85</width>
+          <height>30</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 1px solid black;
+border-radius: 0px;</string>
+        </property>
+        <property name="text">
+         <string>Clients</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+        <property name="autoDefault">
+         <bool>true</bool>
+        </property>
+        <property name="default">
+         <bool>false</bool>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_showEmployees">
+        <property name="geometry">
+         <rect>
+          <x>94</x>
+          <y>351</y>
+          <width>85</width>
+          <height>30</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border: 1px solid black;
+border-radius: 0px;</string>
+        </property>
+        <property name="text">
+         <string>Emplyees</string>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+        <property name="autoDefault">
+         <bool>true</bool>
+        </property>
+        <property name="default">
+         <bool>false</bool>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="tasksTab">

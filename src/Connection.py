@@ -46,3 +46,35 @@ class Connection:
             QtWidgets.QMessageBox.information(None, "Info", "We successfully connected to the database.",
                                               QtWidgets.QMessageBox.StandardButton.Ok)
             return True
+
+
+         #######################
+    #### ##--## USERS ##--## ####   ##########################################################################################
+         #######################
+
+    @staticmethod
+    def getUsers(type):
+        try:
+            usersList = []
+            query = QtSql.QSqlQuery()
+
+            if type == "Clients" or type == "Employees":
+                query.prepare("SELECT  *"
+                              "    FROM Users"
+                              "    WHERE User_Type = :type")
+                query.bindValue(":type", type)
+
+            else:
+                query.prepare("SELECT  *"
+                              "    FROM Users")
+
+            if query.exec():
+                while query.next():
+                    row = [query.value(i) for i in range(query.record().count())]
+                    usersList.append(row)
+
+            return usersList
+
+        except Exception as error:
+            print("(Connection.getUsers) an error occurred while trying to get the users:", error)
+
