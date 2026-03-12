@@ -309,7 +309,7 @@
         </column>
         <column>
          <property name="text">
-          <string>E-mail</string>
+          <string>Phone</string>
          </property>
          <property name="font">
           <font>
@@ -320,7 +320,7 @@
         </column>
         <column>
          <property name="text">
-          <string>Mobile</string>
+          <string>E-mail</string>
          </property>
          <property name="font">
           <font>
@@ -554,13 +554,13 @@ border-radius: 0px;</string>
          <string>All</string>
         </property>
         <property name="checkable">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
         <property name="checked">
          <bool>false</bool>
         </property>
         <property name="autoDefault">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
         <property name="default">
          <bool>false</bool>
@@ -591,13 +591,13 @@ border-radius: 0px;</string>
          <string>Clients</string>
         </property>
         <property name="checkable">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
         <property name="checked">
          <bool>false</bool>
         </property>
         <property name="autoDefault">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
         <property name="default">
          <bool>false</bool>
@@ -628,13 +628,13 @@ border-radius: 0px;</string>
          <string>Emplyees</string>
         </property>
         <property name="checkable">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
         <property name="checked">
          <bool>false</bool>
         </property>
         <property name="autoDefault">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
         <property name="default">
          <bool>false</bool>

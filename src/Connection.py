@@ -58,7 +58,7 @@ class Connection:
             usersList = []
             query = QtSql.QSqlQuery()
 
-            if type == "Clients" or type == "Employees":
+            if type == "Client" or type == "Employee":
                 query.prepare("SELECT  *"
                               "    FROM Users"
                               "    WHERE User_Type = :type")
