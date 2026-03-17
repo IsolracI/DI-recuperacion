@@ -78,7 +78,7 @@
          <string> DNI</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="txt_dni">
+       <widget class="QLineEdit" name="txt_userDNI">
         <property name="geometry">
          <rect>
           <x>130</x>
@@ -116,7 +116,7 @@
          <string> Name</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="txt_lastName">
+       <widget class="QLineEdit" name="txt_userName">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -134,7 +134,7 @@
          <string/>
         </property>
        </widget>
-       <widget class="QLineEdit" name="txt_addressLine1">
+       <widget class="QLineEdit" name="txt_address">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -169,7 +169,7 @@
          </font>
         </property>
         <property name="text">
-         <string> Address Line 1</string>
+         <string> Address</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="txt_email">
