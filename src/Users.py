@@ -1,6 +1,7 @@
 from src.Connection import Connection
 from PyQt6 import QtWidgets, QtCore
 from src import Globals
+import re
 
 
 class Users:
@@ -46,10 +47,37 @@ class Users:
                 Globals.ui.txt_userDNI.setPlaceholderText("Invalid DNI")
 
         except Exception as error:
-            print("There was an error while checking dni: ", error)
+            print("(Users.checkDni) There was an error while trying to check the dni: ", error)
 
         finally:
             Globals.ui.txt_userDNI.editingFinished.connect(Users.checkDni)
+
+
+    @staticmethod
+    def checkMail(email):
+        """
+
+        Valida el formato del correo electrónico.
+
+        :param email: Dirección de correo electrónico introducido por el usuario
+        :type email: str
+        :return: None
+
+        """
+        pattern = r'^[\w\.-]+@[\w\.-]+\.\w+$'
+
+        try:
+            if re.match(pattern, email):
+                Globals.ui.txt_userEmail.setStyleSheet("background-color: rgb(255, 255, 220); color black")
+
+            else:
+                Globals.ui.txt_userEmail.setStyleSheet("background-color: #FFC0CB; color black")
+                Globals.ui.txt_userEmail.setText(None)
+                Globals.ui.txt_userEmail.setPlaceholderText("Invalid email")
+
+        except Exception as error:
+            print("(Users.checkMail) There was an error while trying to check the email: ", error)
+
 
     @staticmethod
     def loadUsersTable():
