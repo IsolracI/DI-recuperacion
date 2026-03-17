@@ -122,3 +122,42 @@ class Users:
 
         except Exception as error:
             print("(Users.saveUser) an error occurred while trying to add the new user: ", error)
+
+
+    @staticmethod
+    def modifyUser():
+        try:
+            mbox = QtWidgets.QMessageBox()
+            mbox.setWindowTitle("Modify")
+            mbox.setIcon(QtWidgets.QMessageBox.Icon.Question)
+            mbox.setText("Do you want to modify the customer's information?")
+            mbox.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No)
+            mbox.setDefaultButton(QtWidgets.QMessageBox.StandardButton.No)
+
+            if mbox.exec() == QtWidgets.QMessageBox.StandardButton.No:
+                mbox.hide()
+                return
+
+            fieldsData = [Globals.ui.txt_userDNI,
+                          Globals.ui.txt_userName,
+                          Globals.ui.txt_userAddress,
+                          Globals.ui.txt_userMobile,
+                          Globals.ui.txt_userEmail]
+
+            userType = ""
+            if Globals.ui.rb_userEmployee.isChecked():
+                userType = "Employee"
+            elif Globals.ui.rb_userClient.isChecked():
+                userType = "Client"
+            fieldsData.append(userType)
+
+            if Connection.updateUser(fieldsData):
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Information")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
+                mbox.setText("The User's information has been modified.")
+                mbox.exec()
+                Users.loadUsersTable()
+
+        except Exception as error:
+            print("(Users.modifyUser) There was an error while modifying the customer's data: ", error)

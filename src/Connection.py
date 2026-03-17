@@ -131,5 +131,32 @@ class Connection:
             print("(Connection.addUser) an error occurred while trying to add the user to the database: ", error)
 
 
+    @staticmethod
+    def updateUser(data):
+        try:
+            query = QtSql.QSqlQuery()
+            query.prepare("UPDATE Users set "
+                          "Name = :Name, Address = :Address,"
+                          "Phone_number = :Phone_number, Email = :Email, User_Type = :User_Type "
+                          "WHERE DNI = :DNI;")
 
+            valuesOrder = [":DNI", ":Name", ":Address", ":Phone_number", ":Email", ":User_Type"]
+            radialButtons = ["Employee", "Client"]
 
+            for i in range(len(valuesOrder)):
+                try:
+                    if data[i] in radialButtons:
+                        valueText = data[i]
+                    else:
+                        valueText = str(data[i].text())
+                except AttributeError:
+                    valueText = str(data[i].currentText())
+                query.bindValue(valuesOrder[i], valueText)
+
+            if not query.exec():
+                print(query.lastError().text())
+                return False
+            return True
+
+        except Exception as error:
+            print("(Connection.updateUser) An error occurred while trying to update the customer's data in the database: ", error)

@@ -33,7 +33,7 @@ class Main(QtWidgets.QMainWindow):
 
         # Buttons
         Globals.ui.btn_saveUser.clicked.connect(Users.saveUser)
-
+        Globals.ui.btn_modifyUser.clicked.connect(Users.modifyUser)
 
 
 if __name__ == "__main__":
