@@ -23,11 +23,15 @@ class Main(QtWidgets.QMainWindow):
         ####   ##-## USERS ##-##   ####
                #################
 
+        # Table
         Users.loadUsersTable()
         Globals.ui.btn_showEmployees.clicked.connect(Users.showEmployees)
         Globals.ui.btn_showAll.clicked.connect(Users.showAll)
         Globals.ui.btn_showClients.clicked.connect(Users.showClients)
         Events.resizeTable(Globals.ui.tbl_users)
+
+        # Buttons
+        Globals.ui.btn_saveUser.clicked.connect(Users.saveUser)
 
 
 if __name__ == "__main__":

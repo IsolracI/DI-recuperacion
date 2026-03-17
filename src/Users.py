@@ -31,7 +31,7 @@ class Users:
                 index += 1
 
         except Exception as error:
-            print("(Users.loadUsersTable) an error occurred while trying to load the users table:", error)
+            print("(Users.loadUsersTable) an error occurred while trying to load the users table: ", error)
 
 
     @staticmethod
@@ -40,7 +40,7 @@ class Users:
             Users.show = "All"
             Users.loadUsersTable()
         except Exception as error:
-            print("(Users.showAll) an error occurred while trying to change the table's configuration", error)
+            print("(Users.showAll) an error occurred while trying to change the table's configuration: ", error)
 
 
     @staticmethod
@@ -49,7 +49,7 @@ class Users:
             Users.show = "Employee"
             Users.loadUsersTable()
         except Exception as error:
-            print("(Users.showEmployees) an error occurred while trying to change the table's configuration", error)
+            print("(Users.showEmployees) an error occurred while trying to change the table's configuration: ", error)
 
 
     @staticmethod
@@ -58,6 +58,46 @@ class Users:
             Users.show = "Client"
             Users.loadUsersTable()
         except Exception as error:
-            print("(Users.showClients) an error occurred while trying to change the table's configuration", error)
+            print("(Users.showClients) an error occurred while trying to change the table's configuration: ", error)
+
+
+    @staticmethod
+    def saveUser():
+        try:
+            allDataBoxes = [Globals.ui.txt_userDNI,
+                            Globals.ui.txt_userName,
+                            Globals.ui.txt_userAddress,
+                            Globals.ui.txt_userMobile,
+                            Globals.ui.txt_userEmail]
+
+            userType = ""
+            if Globals.ui.rb_userEmployee.isChecked():
+                userType = "Employee"
+            elif Globals.ui.rb_userClient.isChecked():
+                userType = "Client"
+            allDataBoxes.append(userType)
+
+            if Connection.addUser(allDataBoxes):
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Information")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
+                mbox.setText("The user has been added successfully.")
+                mbox.exec()
+                Users.loadUsersTable()
+            else:
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Error")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Critical)
+                mbox.setText("An error has occurred while trying to add the user.")
+                mbox.exec()
+
+        except Exception as error:
+            print("(Users.saveUser) an error occurred while trying to add the new user: ", error)
+
+
+
+
+
+
 
 
