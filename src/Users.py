@@ -78,6 +78,27 @@ class Users:
         except Exception as error:
             print("(Users.checkMail) There was an error while trying to check the email: ", error)
 
+    @staticmethod
+    def checkMobile(number):  ###checkMobil
+        """
+
+        Valida el número de teléfono móvil del cliente.
+
+        :param number: Número de teléfono introducido.
+        :type number: str
+        :return: None
+
+        """
+        pattern = r'^[67]\d{8}$'
+
+        if re.match(pattern, number):
+            Globals.ui.txt_userMobile.setStyleSheet("background-color: rgb(255, 255, 220); color black")
+
+        else:
+            Globals.ui.txt_userMobile.setStyleSheet("background-color: #FFC0CB; color black")
+            Globals.ui.txt_userMobile.setText(None)
+            Globals.ui.txt_userMobile.setPlaceholderText("Invalid number")
+
 
     @staticmethod
     def loadUsersTable():

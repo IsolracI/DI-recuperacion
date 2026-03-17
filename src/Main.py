@@ -40,6 +40,7 @@ class Main(QtWidgets.QMainWindow):
         # Fields
         Globals.ui.txt_userDNI.editingFinished.connect(Users.checkDni)
         Globals.ui.txt_userEmail.editingFinished.connect(lambda: Users.checkMail(Globals.ui.txt_userEmail.text()))
+        Globals.ui.txt_userMobile.editingFinished.connect(lambda: Users.checkMobile(Globals.ui.txt_userMobile.text()))
 
 
 if __name__ == "__main__":
