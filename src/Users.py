@@ -197,3 +197,19 @@ class Users:
 
         except Exception as error:
             print("(Users.deleteUser) There was an error while trying to delete the user: ", error)
+
+
+    @staticmethod
+    def clearUsersFields():
+        try:
+            fieldsData = [Globals.ui.txt_userDNI,
+                          Globals.ui.txt_userName,
+                          Globals.ui.txt_userAddress,
+                          Globals.ui.txt_userMobile,
+                          Globals.ui.txt_userEmail]
+
+            for data in fieldsData:
+                data.clear()
+
+        except Exception as error:
+            print("(Users.clearUsersFields) There was an error while trying to clear the users fields: ", error)

@@ -34,6 +34,7 @@ class Main(QtWidgets.QMainWindow):
         # Buttons
         Globals.ui.btn_saveUser.clicked.connect(Users.saveUser)
         Globals.ui.btn_modifyUser.clicked.connect(Users.modifyUser)
+        Globals.ui.btn_clearUser.clicked.connect(Users.clearUsersFields)
         Globals.ui.btn_deleteUser.clicked.connect(Users.deleteUser)
 
 
