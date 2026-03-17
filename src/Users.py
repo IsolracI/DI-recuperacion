@@ -7,6 +7,51 @@ class Users:
     show = "All"
 
     @staticmethod
+    def checkDni():
+        """
+
+        Valida el DNI o NIE introducido por el usuario.
+
+        :return: None
+
+        """
+        try:
+            Globals.ui.txt_userDNI.editingFinished.disconnect()
+            dni = Globals.ui.txt_userDNI.text()
+            dni = str(dni).upper()
+            Globals.ui.txt_userDNI.setText(dni)
+            dniCharacters = "TRWAGMYFPDXBNJZSQVHLCKE"
+            nieCharacters = "XYZ"
+            reempNieCharacters = {"X": "0", "Y": "1", "Z": "2"}
+            validDigits = "1234567890"
+
+            if len(dni) == 9:
+                digitControl = dni[8]
+                dni = dni[:8]
+
+                if dni[0] in nieCharacters:
+                    dni = dni.replace(dni[0], reempNieCharacters[dni[0]])
+
+                if len(dni) == len([n for n in dni if n in validDigits]) and dniCharacters[
+                    int(dni) % 23] == digitControl:
+                    Globals.ui.txt_userDNI.setStyleSheet("background-color: rgb(255, 255, 220);")
+
+                else:
+                    Globals.ui.txt_userDNI.setStyleSheet("background-color: #FFC0CB;")
+                    Globals.ui.txt_userDNI.setText(None)
+
+            else:
+                Globals.ui.txt_userDNI.setStyleSheet("background-color: #FFC0CB;")
+                Globals.ui.txt_userDNI.setText(None)
+                Globals.ui.txt_userDNI.setPlaceholderText("Invalid DNI")
+
+        except Exception as error:
+            print("There was an error while checking dni: ", error)
+
+        finally:
+            Globals.ui.txt_userDNI.editingFinished.connect(Users.checkDni)
+
+    @staticmethod
     def loadUsersTable():
         try:
             users = Connection.getUsers(Users.show)

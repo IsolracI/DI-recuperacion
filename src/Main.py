@@ -37,6 +37,9 @@ class Main(QtWidgets.QMainWindow):
         Globals.ui.btn_clearUser.clicked.connect(Users.clearUsersFields)
         Globals.ui.btn_deleteUser.clicked.connect(Users.deleteUser)
 
+        # Fields
+        Globals.ui.txt_userDNI.editingFinished.connect(Users.checkDni)
+
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
