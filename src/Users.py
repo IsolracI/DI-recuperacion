@@ -161,3 +161,39 @@ class Users:
 
         except Exception as error:
             print("(Users.modifyUser) There was an error while modifying the customer's data: ", error)
+
+
+    @staticmethod
+    def deleteUser():
+        try:
+            mbox = QtWidgets.QMessageBox()
+            mbox.setWindowTitle("Warning")
+            mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+            mbox.setText("Delete User?")
+            mbox.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No)
+            mbox.setDefaultButton(QtWidgets.QMessageBox.StandardButton.No)
+
+            if mbox.exec() == QtWidgets.QMessageBox.StandardButton.Yes:
+                dni = Globals.ui.txt_userDNI.text()
+
+                if Connection.deleteUser(dni):
+                    successMbox = QtWidgets.QMessageBox()
+                    successMbox.setWindowTitle("Information")
+                    successMbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
+                    successMbox.setText("The user has been deleted successfully.")
+                    successMbox.exec()
+                    Users.loadUsersTable()
+                    return
+
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Error")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Critical)
+                mbox.setText("An error has occurred while trying to delete the user.")
+                mbox.exec()
+                return
+
+            else:
+                return
+
+        except Exception as error:
+            print("(Users.deleteUser) There was an error while trying to delete the user: ", error)

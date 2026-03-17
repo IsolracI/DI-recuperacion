@@ -160,3 +160,20 @@ class Connection:
 
         except Exception as error:
             print("(Connection.updateUser) An error occurred while trying to update the customer's data in the database: ", error)
+
+
+    @staticmethod
+    def deleteUser(dni):
+        try:
+            query = QtSql.QSqlQuery()
+            query.prepare("DELETE FROM Users "
+                          "    WHERE DNI = :DNI")
+            query.bindValue(":DNI", dni)
+
+            if not query.exec():
+                print(query.lastError().text())
+                return False
+            return True
+
+        except Exception as error:
+            print("(Connection.deleteUser) An error occurred while trying to delete the user from the database: ", error)
