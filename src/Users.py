@@ -62,22 +62,51 @@ class Users:
 
 
     @staticmethod
+    def loadUserInfo():
+        try:
+            selectedRow = Globals.ui.tbl_users.currentRow()
+            userEmail = Globals.ui.tbl_users.item(selectedRow, 3).text()
+
+            userData = Connection.getUserInfo(userEmail)
+
+            fieldsData = [Globals.ui.txt_userDNI,
+                          Globals.ui.txt_userName,
+                          Globals.ui.txt_userAddress,
+                          Globals.ui.txt_userMobile,
+                          Globals.ui.txt_userEmail]
+
+            for i in range(len(fieldsData)):
+                if hasattr(fieldsData[i], "setText"):
+                    fieldsData[i].setText(str(userData[i]))
+                if hasattr(fieldsData[i], "setCurrentText"):
+                    fieldsData[i].setCurrentText(str(userData[i]))
+
+            if str(userData[5]) == "Employee":
+                Globals.ui.rb_userEmployee.setChecked(True)
+            else:
+                Globals.ui.rb_userClient.setChecked(True)
+
+        except Exception as error:
+            print("(Users.loadUserInfo) There was an error while trying to show the users's info: ", error)
+
+
+    @staticmethod
     def saveUser():
         try:
-            allDataBoxes = [Globals.ui.txt_userDNI,
-                            Globals.ui.txt_userName,
-                            Globals.ui.txt_userAddress,
-                            Globals.ui.txt_userMobile,
-                            Globals.ui.txt_userEmail]
+            fieldsData = [Globals.ui.txt_userDNI,
+                          Globals.ui.txt_userName,
+                          Globals.ui.txt_userAddress,
+                          Globals.ui.txt_userMobile,
+                          Globals.ui.txt_userEmail]
 
             userType = ""
             if Globals.ui.rb_userEmployee.isChecked():
                 userType = "Employee"
             elif Globals.ui.rb_userClient.isChecked():
                 userType = "Client"
-            allDataBoxes.append(userType)
+            fieldsData.append(userType)
 
-            if Connection.addUser(allDataBoxes):
+            if Connection.insertUser(fieldsData):
                 mbox = QtWidgets.QMessageBox()
                 mbox.setWindowTitle("Information")
                 mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
@@ -93,11 +122,3 @@ class Users:
 
         except Exception as error:
             print("(Users.saveUser) an error occurred while trying to add the new user: ", error)
-
-
-
-
-
-
-
-

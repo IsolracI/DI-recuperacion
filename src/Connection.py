@@ -80,6 +80,27 @@ class Connection:
 
 
     @staticmethod
+    def getUserInfo(email):
+        try:
+            userData = []
+            query = QtSql.QSqlQuery()
+            email = str(email).strip()
+            query.prepare("SELECT  *"
+                          "    FROM Users"
+                          "    WHERE Email = :Email")
+            query.bindValue(":Email", email)
+
+            if query.exec():
+                while query.next():
+                    for i in range(query.record().count()):
+                        userData.append(query.value(i))
+            return userData
+
+        except Exception as error:
+            print("An error ocurred while trying to get the customer info: ", error)
+
+
+    @staticmethod
     def insertUser(data):
         try:
             query = QtSql.QSqlQuery()
@@ -107,4 +128,8 @@ class Connection:
             return True
 
         except Exception as error:
-            print("(Connection.addUser) an error occurred while trying to add the user to the database.", error)
+            print("(Connection.addUser) an error occurred while trying to add the user to the database: ", error)
+
+
+
+
