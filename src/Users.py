@@ -79,7 +79,7 @@ class Users:
             print("(Users.checkMail) There was an error while trying to check the email: ", error)
 
     @staticmethod
-    def checkMobile(number):  ###checkMobil
+    def checkMobile(number):
         """
 
         Valida el número de teléfono móvil del cliente.
@@ -211,7 +211,9 @@ class Users:
                 mbox = QtWidgets.QMessageBox()
                 mbox.setWindowTitle("Error")
                 mbox.setIcon(QtWidgets.QMessageBox.Icon.Critical)
-                mbox.setText("An error has occurred while trying to add the user.")
+                mbox.setText("An error has occurred while trying to add the user.\n"
+                             "Please, check to see if the user is already registered.\n"
+                             "or to see if there's any field empty")
                 mbox.exec()
 
         except Exception as error:
