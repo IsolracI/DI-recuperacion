@@ -80,7 +80,7 @@ class Connection:
 
 
     @staticmethod
-    def addUser(data):
+    def insertUser(data):
         try:
             query = QtSql.QSqlQuery()
             query.prepare("INSERT INTO Users "
