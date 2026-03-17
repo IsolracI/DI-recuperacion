@@ -58,7 +58,7 @@
          <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_dni">
+       <widget class="QLabel" name="lbl_userDNI">
         <property name="geometry">
          <rect>
           <x>130</x>
@@ -96,7 +96,7 @@
          <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_lastName">
+       <widget class="QLabel" name="lbl_userName">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -134,7 +134,7 @@
          <string/>
         </property>
        </widget>
-       <widget class="QLineEdit" name="txt_address">
+       <widget class="QLineEdit" name="txt_userAddress">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -152,7 +152,7 @@
          <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_addressLine1">
+       <widget class="QLabel" name="lbl_userAddress">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -172,7 +172,7 @@
          <string> Address</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="txt_email">
+       <widget class="QLineEdit" name="txt_userEmail">
         <property name="geometry">
          <rect>
           <x>460</x>
@@ -190,7 +190,7 @@
          <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_email">
+       <widget class="QLabel" name="lbl_userEmail">
         <property name="geometry">
          <rect>
           <x>460</x>
@@ -210,7 +210,7 @@
          <string> E-mail</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="txt_mobile">
+       <widget class="QLineEdit" name="txt_userMobile">
         <property name="geometry">
          <rect>
           <x>690</x>
@@ -228,7 +228,7 @@
          <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_mobile">
+       <widget class="QLabel" name="lbl_userMobile">
         <property name="geometry">
          <rect>
           <x>690</x>
@@ -341,7 +341,7 @@
          </property>
         </column>
        </widget>
-       <widget class="QRadioButton" name="radioButton">
+       <widget class="QRadioButton" name="rb_userEmployee">
         <property name="geometry">
          <rect>
           <x>460</x>
@@ -361,7 +361,7 @@
          <string>Employee</string>
         </property>
        </widget>
-       <widget class="QRadioButton" name="radioButton_2">
+       <widget class="QRadioButton" name="rb_userClient">
         <property name="geometry">
          <rect>
           <x>570</x>
@@ -756,7 +756,7 @@ border-radius: 0px;</string>
          <string> Client</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="txt_serviceGiven">
+       <widget class="QLineEdit" name="txt_taskService">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -774,7 +774,7 @@ border-radius: 0px;</string>
          <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_serviceGiven">
+       <widget class="QLabel" name="lbl_taskService">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -794,7 +794,7 @@ border-radius: 0px;</string>
          <string> Service</string>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_serviceStatus">
+       <widget class="QLabel" name="lbl_taskStatus">
         <property name="geometry">
          <rect>
           <x>720</x>
@@ -814,7 +814,7 @@ border-radius: 0px;</string>
          <string> Status</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="txt_hoursTaken">
+       <widget class="QLineEdit" name="txt_taskHours">
         <property name="geometry">
          <rect>
           <x>520</x>
@@ -832,7 +832,7 @@ border-radius: 0px;</string>
          <string/>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_hoursTaken">
+       <widget class="QLabel" name="lbl_taskHours">
         <property name="geometry">
          <rect>
           <x>520</x>
@@ -852,7 +852,7 @@ border-radius: 0px;</string>
          <string> Hours</string>
         </property>
        </widget>
-       <widget class="QComboBox" name="cmb_serviceStatus">
+       <widget class="QComboBox" name="cmb_taskStatus">
         <property name="geometry">
          <rect>
           <x>720</x>
@@ -1096,7 +1096,7 @@ border-radius: 0px;</string>
          </item>
         </layout>
        </widget>
-       <widget class="QLabel" name="lbl_priceHour">
+       <widget class="QLabel" name="lbl_taskPrice">
         <property name="geometry">
          <rect>
           <x>390</x>
@@ -1116,7 +1116,7 @@ border-radius: 0px;</string>
          <string> €/H</string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="txt_priceHour">
+       <widget class="QLineEdit" name="txt_taskPrice">
         <property name="geometry">
          <rect>
           <x>390</x>
