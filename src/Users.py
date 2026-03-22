@@ -322,10 +322,19 @@ class Users:
                           Globals.ui.txt_userName,
                           Globals.ui.txt_userAddress,
                           Globals.ui.txt_userMobile,
-                          Globals.ui.txt_userEmail]
+                          Globals.ui.txt_userEmail,
+                          Globals.ui.userPortrait]
+
+            radioButtons = [Globals.ui.rb_userClient,
+                            Globals.ui.rb_userEmployee]
 
             for data in fieldsData:
                 data.clear()
+
+            for radioButton in radioButtons:
+                radioButton.setAutoExclusive(False)
+                radioButton.setChecked(False)
+                radioButton.setAutoExclusive(True)
 
         except Exception as error:
             print("(Users.clearUsersFields) There was an error while trying to clear the users fields: ", error)
