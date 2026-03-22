@@ -532,7 +532,7 @@
        <widget class="QPushButton" name="btn_showAll">
         <property name="geometry">
          <rect>
-          <x>10</x>
+          <x>11</x>
           <y>351</y>
           <width>85</width>
           <height>30</height>
@@ -547,8 +547,7 @@
          <bool>false</bool>
         </property>
         <property name="styleSheet">
-         <string notr="true">border: 1px solid black;
-border-radius: 0px;</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>All</string>
@@ -572,7 +571,7 @@ border-radius: 0px;</string>
        <widget class="QPushButton" name="btn_showClients">
         <property name="geometry">
          <rect>
-          <x>178</x>
+          <x>179</x>
           <y>351</y>
           <width>85</width>
           <height>30</height>
@@ -584,8 +583,7 @@ border-radius: 0px;</string>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">border: 1px solid black;
-border-radius: 0px;</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>Clients</string>
@@ -609,7 +607,7 @@ border-radius: 0px;</string>
        <widget class="QPushButton" name="btn_showEmployees">
         <property name="geometry">
          <rect>
-          <x>94</x>
+          <x>95</x>
           <y>351</y>
           <width>85</width>
           <height>30</height>
@@ -621,8 +619,7 @@ border-radius: 0px;</string>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">border: 1px solid black;
-border-radius: 0px;</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>Emplyees</string>

@@ -1,0 +1,156 @@
+/* =======================
+   GLOBAL
+======================= */
+QWidget {
+    background-color: #F5F7FA;
+    color: #2C3E50;
+    font-family: Segoe UI, Arial;
+    font-size: 14px;
+}
+
+/* =======================
+   INPUTS
+======================= */
+QLineEdit, QComboBox {
+    background-color: #FFFFFF;
+    border: 1px solid #DCDCDC;
+    border-radius: 6px;
+    padding: 6px;
+}
+
+QLineEdit:focus, QComboBox:focus {
+    border: 1px solid #2D8CFF;
+}
+
+/* =======================
+   BUTTONS
+======================= */
+QPushButton {
+    background-color: #ECF0F1;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    color: #2C3E50;
+}
+
+QPushButton:hover {
+    background-color: #D0D7DE;
+}
+
+/* BOTÓN PRINCIPAL (ej: guardar) */
+QPushButton#btn_saveUser {
+    background-color: #2D8CFF;
+    color: white;
+}
+
+QPushButton#btn_saveUser:hover {
+    background-color: #1A73E8;
+}
+
+/* BOTÓN ELIMINAR */
+QPushButton#btn_deleteUser {
+    background-color: #E74C3C;
+    color: white;
+}
+
+QPushButton#btn_deleteUser:hover {
+    background-color: #C0392B;
+}
+
+/* BOTONES FILTRO */
+QPushButton#btn_showAll,
+QPushButton#btn_showEmployees,
+QPushButton#btn_showClients {
+    color: white;
+    border: 1px solid;
+    border-color: #D0D7DE;
+    border-radius: 0px;
+    background-color: #2D8CFF;
+}
+
+QPushButton#btn_showAll:hover,
+QPushButton#btn_showEmployees:hover,
+QPushButton#btn_showClients:hover {
+    background-color: #1A73E8;
+}
+
+/* =======================
+   TABLE
+======================= */
+QTableWidget {
+    background-color: #FFFFFF;
+    border: 1px solid #DCDCDC;
+    gridline-color: #E0E0E0;
+    alternate-background-color: #F9FBFD;
+    selection-background-color: #2D8CFF;
+    selection-color: white;
+}
+
+QHeaderView::section {
+    background-color: #2D8CFF;
+    color: white;
+    padding: 5px;
+    border: none;
+}
+
+/* =======================
+   RADIO BUTTONS
+======================= */
+QRadioButton {
+    spacing: 5px;
+}
+
+QRadioButton::indicator {
+    width: 14px;
+    height: 14px;
+}
+
+QRadioButton::indicator:checked {
+    background-color: #2D8CFF;
+    border: 2px solid #2D8CFF;
+    border-radius: 7px;
+}
+
+QRadioButton::indicator:unchecked {
+    border: 2px solid #BDC3C7;
+    border-radius: 7px;
+}
+
+/* =======================
+   MENU BAR
+======================= */
+QMenuBar {
+    background-color: #2C3E50;
+    color: white;
+}
+
+QMenuBar::item:selected {
+    background-color: #34495E;
+}
+
+QMenu {
+    background-color: white;
+    border: 1px solid #DCDCDC;
+}
+
+QMenu::item:selected {
+    background-color: #2D8CFF;
+    color: white;
+}
+
+/* =======================
+   SCROLLBAR
+======================= */
+QScrollBar:vertical {
+    background: #ECF0F1;
+    width: 10px;
+}
+
+QScrollBar::handle:vertical {
+    background: #BDC3C7;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #95A5A6;
+}

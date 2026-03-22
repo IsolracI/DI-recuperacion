@@ -1,6 +1,7 @@
 from pythonUI.MainWindow import Ui_MainWindow
 from src.Connection import *
 from PyQt6 import QtWidgets
+from styles import Styles
 from src.Events import *
 from src.Users import *
 from src import Globals
@@ -15,6 +16,9 @@ class Main(QtWidgets.QMainWindow):
                ###################
         ####   ##-## GENERAL ##-##   ####
                ###################
+
+        # Style Sheet
+        self.setStyleSheet(Styles.load_stylesheet())
 
         # DB Connection
         Connection.dbConnection()
