@@ -191,11 +191,11 @@ class Users:
     @staticmethod
     def saveUser():
         try:
-            fieldsData = [Globals.ui.txt_userDNI,
-                          Globals.ui.txt_userName,
-                          Globals.ui.txt_userAddress,
-                          Globals.ui.txt_userMobile,
-                          Globals.ui.txt_userEmail]
+            fieldsData = [Globals.ui.txt_userDNI.text(),
+                          Globals.ui.txt_userName.text(),
+                          Globals.ui.txt_userAddress.text(),
+                          Globals.ui.txt_userMobile.text(),
+                          Globals.ui.txt_userEmail.text(),]
 
             userType = ""
             if Globals.ui.rb_userEmployee.isChecked():
@@ -203,6 +203,14 @@ class Users:
             elif Globals.ui.rb_userClient.isChecked():
                 userType = "Client"
             fieldsData.append(userType)
+
+            if not all(fieldsData):
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Error")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Critical)
+                mbox.setText("Please fill all the fields")
+                mbox.exec()
+                return
 
             if Connection.insertUser(fieldsData):
                 mbox = QtWidgets.QMessageBox()
@@ -227,6 +235,27 @@ class Users:
     @staticmethod
     def modifyUser():
         try:
+            fieldsData = [Globals.ui.txt_userDNI.text(),
+                          Globals.ui.txt_userName.text(),
+                          Globals.ui.txt_userAddress.text(),
+                          Globals.ui.txt_userMobile.text(),
+                          Globals.ui.txt_userEmail.text()]
+
+            userType = ""
+            if Globals.ui.rb_userEmployee.isChecked():
+                userType = "Employee"
+            elif Globals.ui.rb_userClient.isChecked():
+                userType = "Client"
+            fieldsData.append(userType)
+
+            if not all(fieldsData):
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Error")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Critical)
+                mbox.setText("Please fill all the fields")
+                mbox.exec()
+                return
+
             mbox = QtWidgets.QMessageBox()
             mbox.setWindowTitle("Modify")
             mbox.setIcon(QtWidgets.QMessageBox.Icon.Question)
@@ -238,24 +267,11 @@ class Users:
                 mbox.hide()
                 return
 
-            fieldsData = [Globals.ui.txt_userDNI,
-                          Globals.ui.txt_userName,
-                          Globals.ui.txt_userAddress,
-                          Globals.ui.txt_userMobile,
-                          Globals.ui.txt_userEmail]
-
-            userType = ""
-            if Globals.ui.rb_userEmployee.isChecked():
-                userType = "Employee"
-            elif Globals.ui.rb_userClient.isChecked():
-                userType = "Client"
-            fieldsData.append(userType)
-
             if Connection.updateUser(fieldsData):
                 mbox = QtWidgets.QMessageBox()
                 mbox.setWindowTitle("Information")
                 mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
-                mbox.setText("The User's information has been modified.")
+                mbox.setText("The User's information has been modified successfully.")
                 mbox.exec()
                 Users.loadUsersTable()
 
