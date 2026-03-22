@@ -98,6 +98,9 @@
         <property name="text">
          <string/>
         </property>
+        <property name="placeholderText">
+         <string>Enter your DNI</string>
+        </property>
        </widget>
        <widget class="QLabel" name="lbl_userName">
         <property name="geometry">
@@ -136,11 +139,14 @@
         <property name="text">
          <string/>
         </property>
+        <property name="placeholderText">
+         <string>Enter your name</string>
+        </property>
        </widget>
        <widget class="QLineEdit" name="txt_userAddress">
         <property name="geometry">
          <rect>
-          <x>10</x>
+          <x>9</x>
           <y>230</y>
           <width>400</width>
           <height>20</height>
@@ -153,6 +159,9 @@
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="placeholderText">
+         <string>Enter your address</string>
         </property>
        </widget>
        <widget class="QLabel" name="lbl_userAddress">
@@ -192,6 +201,9 @@
         <property name="text">
          <string/>
         </property>
+        <property name="placeholderText">
+         <string>Enter your e-mail</string>
+        </property>
        </widget>
        <widget class="QLabel" name="lbl_userEmail">
         <property name="geometry">
@@ -229,6 +241,9 @@
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="placeholderText">
+         <string>Enter your number</string>
         </property>
        </widget>
        <widget class="QLabel" name="lbl_userMobile">

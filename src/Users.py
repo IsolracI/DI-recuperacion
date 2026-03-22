@@ -104,14 +104,16 @@ class Users:
     def checkName():
         if not Globals.ui.txt_userName.text():
             Globals.ui.txt_userName.setStyleSheet("background-color: #FFC0CB; color black")
-            Globals.ui.txt_userName.setPlaceholderText("Please enter a name")
+        else:
+            Globals.ui.txt_userName.setStyleSheet("background-color: rgb(255, 255, 220)")
 
 
     @staticmethod
     def checkAddress():
         if not Globals.ui.txt_userAddress.text():
             Globals.ui.txt_userAddress.setStyleSheet("background-color: #FFC0CB; color black")
-            Globals.ui.txt_userAddress.setPlaceholderText("Please enter an address")
+        else:
+            Globals.ui.txt_userAddress.setStyleSheet("background-color: rgb(255, 255, 220)")
 
 
     @staticmethod
@@ -184,6 +186,9 @@ class Users:
                           Globals.ui.txt_userAddress,
                           Globals.ui.txt_userMobile,
                           Globals.ui.txt_userEmail]
+
+            for field in fieldsData:
+                field.setStyleSheet("background-color: white")
 
             for i in range(len(fieldsData)):
                 if hasattr(fieldsData[i], "setText"):
@@ -344,6 +349,10 @@ class Users:
 
             for data in fieldsData:
                 data.clear()
+
+            Globals.ui.txt_userDNI.setPlaceholderText("Enter your DNI")
+            Globals.ui.txt_userEmail.setPlaceholderText("Enter your e-mail")
+            Globals.ui.txt_userMobile.setPlaceholderText("Enter your number")
 
             for radioButton in radioButtons:
                 radioButton.setAutoExclusive(False)
