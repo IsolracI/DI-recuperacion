@@ -8,6 +8,11 @@ QWidget {
     font-size: 14px;
 }
 
+QLabel {
+    font-weight: bold;
+    font-size: 15px;
+}
+
 /* =======================
    INPUTS
 ======================= */
@@ -15,7 +20,6 @@ QLineEdit, QComboBox {
     background-color: #FFFFFF;
     border: 1px solid #DCDCDC;
     border-radius: 6px;
-    padding: 6px;
 }
 
 QLineEdit:focus, QComboBox:focus {
@@ -26,10 +30,10 @@ QLineEdit:focus, QComboBox:focus {
    BUTTONS
 ======================= */
 QPushButton {
+    font-weight: bold;
     background-color: #ECF0F1;
     border: none;
     border-radius: 6px;
-    padding: 6px 12px;
     color: #2C3E50;
 }
 
@@ -87,9 +91,12 @@ QTableWidget {
 }
 
 QHeaderView::section {
+    font-weight: bold;
+    font-size: 18px;
     background-color: #2D8CFF;
+    padding-top: 2px;
+    padding-bottom: 2px;
     color: white;
-    padding: 5px;
     border: none;
 }
 
@@ -136,21 +143,4 @@ QMenu {
 QMenu::item:selected {
     background-color: #2D8CFF;
     color: white;
-}
-
-/* =======================
-   SCROLLBAR
-======================= */
-QScrollBar:vertical {
-    background: #ECF0F1;
-    width: 10px;
-}
-
-QScrollBar::handle:vertical {
-    background: #BDC3C7;
-    border-radius: 5px;
-}
-
-QScrollBar::handle:vertical:hover {
-    background: #95A5A6;
 }

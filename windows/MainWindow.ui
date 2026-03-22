@@ -57,12 +57,15 @@
         <property name="text">
          <string/>
         </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
        </widget>
        <widget class="QLabel" name="lbl_userDNI">
         <property name="geometry">
          <rect>
           <x>130</x>
-          <y>80</y>
+          <y>75</y>
           <width>55</width>
           <height>20</height>
          </rect>
@@ -660,6 +663,12 @@
         <property name="text">
          <string/>
         </property>
+        <property name="pixmap">
+         <pixmap>../assets/employee_icon.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
+        </property>
        </widget>
        <widget class="QLabel" name="clientPortrait">
         <property name="geometry">
@@ -675,6 +684,12 @@
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>../assets/client_icon.png</pixmap>
+        </property>
+        <property name="scaledContents">
+         <bool>true</bool>
         </property>
        </widget>
        <widget class="QLineEdit" name="txt_employeeName">

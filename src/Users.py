@@ -1,5 +1,5 @@
 from src.Connection import Connection
-from PyQt6 import QtWidgets, QtCore
+from PyQt6 import QtWidgets, QtCore, QtGui
 from src import Globals
 import re
 
@@ -160,6 +160,8 @@ class Users:
         try:
             selectedRow = Globals.ui.tbl_users.currentRow()
             userEmail = Globals.ui.tbl_users.item(selectedRow, 3).text()
+            employeeIcon = QtGui.QPixmap("../assets/employee_icon.png")
+            ClientIcon = QtGui.QPixmap("../assets/client_icon.png")
 
             userData = Connection.getUserInfo(userEmail)
 
@@ -176,8 +178,10 @@ class Users:
                     fieldsData[i].setCurrentText(str(userData[i]))
 
             if str(userData[5]) == "Employee":
+                Globals.ui.userPortrait.setPixmap(employeeIcon)
                 Globals.ui.rb_userEmployee.setChecked(True)
             else:
+                Globals.ui.userPortrait.setPixmap(ClientIcon)
                 Globals.ui.rb_userClient.setChecked(True)
 
         except Exception as error:
