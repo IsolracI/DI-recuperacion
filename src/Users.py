@@ -101,6 +101,20 @@ class Users:
 
 
     @staticmethod
+    def checkName():
+        if not Globals.ui.txt_userName.text():
+            Globals.ui.txt_userName.setStyleSheet("background-color: #FFC0CB; color black")
+            Globals.ui.txt_userName.setPlaceholderText("Please enter a name")
+
+
+    @staticmethod
+    def checkAddress():
+        if not Globals.ui.txt_userAddress.text():
+            Globals.ui.txt_userAddress.setStyleSheet("background-color: #FFC0CB; color black")
+            Globals.ui.txt_userAddress.setPlaceholderText("Please enter an address")
+
+
+    @staticmethod
     def loadUsersTable():
         try:
             users = Connection.getUsers(Users.show)

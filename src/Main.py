@@ -42,6 +42,8 @@ class Main(QtWidgets.QMainWindow):
         Globals.ui.btn_deleteUser.clicked.connect(Users.deleteUser)
 
         # Fields
+        Globals.ui.txt_userName.editingFinished.connect(Users.checkName)
+        Globals.ui.txt_userAddress.editingFinished.connect(Users.checkAddress)
         Globals.ui.txt_userDNI.editingFinished.connect(Users.checkDni)
         Globals.ui.txt_userEmail.editingFinished.connect(lambda: Users.checkMail(Globals.ui.txt_userEmail.text()))
         Globals.ui.txt_userMobile.editingFinished.connect(lambda: Users.checkMobile(Globals.ui.txt_userMobile.text()))
