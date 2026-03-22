@@ -249,11 +249,11 @@ class Users:
     @staticmethod
     def modifyUser():
         try:
-            fieldsData = [Globals.ui.txt_userDNI.text(),
-                          Globals.ui.txt_userName.text(),
-                          Globals.ui.txt_userAddress.text(),
-                          Globals.ui.txt_userMobile.text(),
-                          Globals.ui.txt_userEmail.text()]
+            fieldsData = [Globals.ui.txt_userDNI,
+                          Globals.ui.txt_userName,
+                          Globals.ui.txt_userAddress,
+                          Globals.ui.txt_userMobile,
+                          Globals.ui.txt_userEmail]
 
             userType = ""
             if Globals.ui.rb_userEmployee.isChecked():
