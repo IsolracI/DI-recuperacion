@@ -301,6 +301,16 @@ class Users:
     @staticmethod
     def deleteUser():
         try:
+            dni = Globals.ui.txt_userDNI.text()
+
+            if not dni:
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Error")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Critical)
+                mbox.setText("No user selected.")
+                mbox.exec()
+                return
+
             mbox = QtWidgets.QMessageBox()
             mbox.setWindowTitle("Warning")
             mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
@@ -309,8 +319,6 @@ class Users:
             mbox.setDefaultButton(QtWidgets.QMessageBox.StandardButton.No)
 
             if mbox.exec() == QtWidgets.QMessageBox.StandardButton.Yes:
-                dni = Globals.ui.txt_userDNI.text()
-
                 if Connection.deleteUser(dni):
                     successMbox = QtWidgets.QMessageBox()
                     successMbox.setWindowTitle("Information")
