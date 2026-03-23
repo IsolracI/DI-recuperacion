@@ -356,7 +356,7 @@ class Users:
 
             for data in fieldsData:
                 data.clear()
-                data.setStyleSheet("QWidget { background-color: rgb(255, 255, 255); }")
+                data.setStyleSheet("background-color: rgb(255, 255, 255)")
 
             Globals.ui.userPortrait.clear()
 
