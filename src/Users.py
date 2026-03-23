@@ -349,14 +349,16 @@ class Users:
                           Globals.ui.txt_userName,
                           Globals.ui.txt_userAddress,
                           Globals.ui.txt_userMobile,
-                          Globals.ui.txt_userEmail,
-                          Globals.ui.userPortrait]
+                          Globals.ui.txt_userEmail]
 
             radioButtons = [Globals.ui.rb_userClient,
                             Globals.ui.rb_userEmployee]
 
             for data in fieldsData:
                 data.clear()
+                data.setStyleSheet("QWidget { background-color: rgb(255, 255, 255); }")
+
+            Globals.ui.userPortrait.clear()
 
             Globals.ui.txt_userDNI.setPlaceholderText("Enter your DNI")
             Globals.ui.txt_userEmail.setPlaceholderText("Enter your e-mail")
