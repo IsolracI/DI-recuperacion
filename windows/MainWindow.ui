@@ -1185,10 +1185,22 @@
      <string>About</string>
     </property>
    </widget>
+   <widget class="QMenu" name="menuReports">
+    <property name="title">
+     <string>Reports</string>
+    </property>
+    <addaction name="actionUsers_Report"/>
+   </widget>
    <addaction name="menuFiles"/>
+   <addaction name="menuReports"/>
    <addaction name="menuAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionUsers_Report">
+   <property name="text">
+    <string>Users Report</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
