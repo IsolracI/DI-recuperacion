@@ -73,7 +73,7 @@ class Reports:
             usersReportName = data + "_reportUsers.pdf"
             pdfPath = os.path.join(rootPath, usersReportName)
             reportCanvas = canvas.Canvas(pdfPath)
-            records = Connection.getUsers()
+            records = Connection.getUsersOrderByName()
             items = ["NAME", "PHONE", "EMAIL", "TYPE"]
             reportCanvas.setFont("Helvetica-Bold", 10)
             reportCanvas.drawCentredString(100, 650, str(items[0]))
@@ -84,8 +84,8 @@ class Reports:
             reportCanvas.line(35, 663, 525, 663)
             y = 630
 
-            Reports.reportHeader(reportCanvas, "Users Report")
-            Reports.reportFooter(reportCanvas, "Users Report")
+            Reports.reportHeader(reportCanvas, "Listado de empleados")
+            Reports.reportFooter(reportCanvas, "Listado de empleados")
 
             for record in records:
                 if y <= 90:

@@ -80,6 +80,27 @@ class Connection:
 
 
     @staticmethod
+    def getUsersOrderByName():
+        try:
+            usersList = []
+            query = QtSql.QSqlQuery()
+            query.prepare("SELECT  *"
+                          "    FROM Users"
+                          "    ORDER BY Name")
+
+            if query.exec():
+                while query.next():
+                    row = [query.value(i) for i in range(query.record().count())]
+                    usersList.append(row)
+
+            return usersList
+
+        except Exception as error:
+            print("(Connection.getUsersOrderByName) an error occurred while trying to get the users:", error)
+
+
+
+    @staticmethod
     def getUserInfo(email):
         try:
             userData = []
