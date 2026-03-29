@@ -53,7 +53,7 @@ class Connection:
          #######################
 
     @staticmethod
-    def getUsers(type):
+    def getUsers(type="All"):
         try:
             usersList = []
             query = QtSql.QSqlQuery()

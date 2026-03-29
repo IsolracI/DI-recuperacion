@@ -2,6 +2,7 @@ from pythonUI.MainWindow import Ui_MainWindow
 from src.Connection import *
 from PyQt6 import QtWidgets
 from styles import Styles
+from src.Reports import *
 from src.Events import *
 from src.Users import *
 from src import Globals
@@ -22,6 +23,9 @@ class Main(QtWidgets.QMainWindow):
 
         # DB Connection
         Connection.dbConnection()
+
+        # Menu bar
+        Globals.ui.actionUsers_Report.triggered.connect(Reports.usersReport)
 
                #################
         ####   ##-## USERS ##-##   ####
