@@ -5,6 +5,7 @@ from styles import Styles
 from src.Reports import *
 from src.Events import *
 from src.Users import *
+from src.Tasks import *
 from src import Globals
 import sys
 
@@ -52,6 +53,13 @@ class Main(QtWidgets.QMainWindow):
         Globals.ui.txt_userEmail.editingFinished.connect(lambda: Users.checkMail(Globals.ui.txt_userEmail.text()))
         Globals.ui.txt_userMobile.editingFinished.connect(lambda: Users.checkMobile(Globals.ui.txt_userMobile.text()))
 
+               #################
+        ####   ##-## TASKS ##-##   ####
+               #################
+
+        # Table
+        Tasks.loadTasksTable()
+        Events.resizeTable(Globals.ui.tbl_tasks)
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)

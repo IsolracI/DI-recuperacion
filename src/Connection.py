@@ -198,3 +198,27 @@ class Connection:
 
         except Exception as error:
             print("(Connection.deleteUser) An error occurred while trying to delete the user from the database: ", error)
+
+
+         #######################
+    #### ##--## TASKS ##--## ####   ##########################################################################################
+         #######################
+
+    @staticmethod
+    def getTasks():
+        try:
+            tasksList = []
+            query = QtSql.QSqlQuery()
+            query.prepare("SELECT  *"
+                          "    FROM Tasks")
+
+            if query.exec():
+                while query.next():
+                    row = [query.value(i) for i in range(query.record().count())]
+                    tasksList.append(row)
+
+            return tasksList
+
+        except Exception as error:
+            print("(Connection.getTasks) An error occurred while trying to get the tasks from the database:", error)
+

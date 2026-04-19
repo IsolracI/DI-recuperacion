@@ -1,5 +1,5 @@
-from src.Connection import Connection
 from PyQt6 import QtWidgets, QtCore, QtGui
+from src.Connection import Connection
 from src import Globals
 import re
 
