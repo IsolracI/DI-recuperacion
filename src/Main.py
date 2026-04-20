@@ -65,6 +65,7 @@ class Main(QtWidgets.QMainWindow):
         Globals.ui.btn_saveTask.clicked.connect(Tasks.saveTask)
 
         # Fields
+        Tasks.loadStatusOptions()
         Globals.ui.txt_employeeName.editingFinished.connect(Tasks.checkEmployee)
         Globals.ui.txt_clientName.editingFinished.connect(Tasks.checkClient)
 

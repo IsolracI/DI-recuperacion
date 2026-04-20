@@ -6,6 +6,12 @@ from src import Globals
 class Tasks:
 
     @staticmethod
+    def loadStatusOptions():
+        statusOptions = ["  -- selecciona --", "Pendiente", "En curso", "Finalizada", "Facturada"]
+        Globals.ui.cmb_taskStatus.addItems(statusOptions)
+
+
+    @staticmethod
     def checkEmployee():
         existingEmployees = Connection.getEmployeesName()
         employee = Globals.ui.txt_employeeName.text()
