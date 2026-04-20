@@ -78,19 +78,19 @@ class Tasks:
                           Globals.ui.txt_taskHours.text(),
                           Globals.ui.cmb_taskStatus.currentText()]
 
-            if Globals.ui.cmb_taskService.currentText() == "  -- selecciona --":
-                mbox = QtWidgets.QMessageBox()
-                mbox.setWindowTitle("Error")
-                mbox.setIcon(QtWidgets.QMessageBox.Icon.Critical)
-                mbox.setText("Please choose the current status of the task.")
-                mbox.exec()
-                return
-
             if not all(fieldsData):
                 mbox = QtWidgets.QMessageBox()
                 mbox.setWindowTitle("Error")
                 mbox.setIcon(QtWidgets.QMessageBox.Icon.Critical)
                 mbox.setText("Please fill all the fields.")
+                mbox.exec()
+                return
+
+            if Globals.ui.cmb_taskService.currentText() == "  -- selecciona --":
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Error")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Critical)
+                mbox.setText("Please specify the current status of the task.")
                 mbox.exec()
                 return
 
