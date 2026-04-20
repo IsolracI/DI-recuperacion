@@ -248,7 +248,7 @@ class Users:
                 mbox.exec()
 
         except Exception as error:
-            print("(Users.saveUser) an error occurred while trying to add the new user: ", error)
+            print("(Users.saveUser) an error occurred while trying to save the new user: ", error)
 
 
     @staticmethod

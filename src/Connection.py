@@ -76,7 +76,7 @@ class Connection:
             return usersList
 
         except Exception as error:
-            print("(Connection.getUsers) an error occurred while trying to get the users:", error)
+            print("(Connection.getUsers) an error occurred while trying to get the users from the database:", error)
 
 
     @staticmethod
@@ -96,7 +96,7 @@ class Connection:
             return usersList
 
         except Exception as error:
-            print("(Connection.getUsersOrderByName) an error occurred while trying to get the users:", error)
+            print("(Connection.getUsersOrderByName) an error occurred while trying to get the users from the database:", error)
 
 
     @staticmethod
@@ -155,7 +155,7 @@ class Connection:
             return userData
 
         except Exception as error:
-            print("An error ocurred while trying to get the customer info: ", error)
+            print("(Connection.getUserInfo) An error ocurred while trying to get the user's info from the database: ", error)
 
 
     @staticmethod
@@ -181,12 +181,12 @@ class Connection:
                 query.bindValue(valuesOrder[i], valueText)
 
             if not query.exec():
-                print("(Connection.addUser) An error ocurred while trying to add the user: ", query.lastError().text())
+                print("(Connection.insertUser) An error ocurred while trying to add the user to the database: ", query.lastError().text())
                 return False
             return True
 
         except Exception as error:
-            print("(Connection.addUser) an error occurred while trying to add the user to the database: ", error)
+            print("(Connection.insertUser) an error occurred while trying to add the user to the database: ", error)
 
 
     @staticmethod
@@ -217,7 +217,7 @@ class Connection:
             return True
 
         except Exception as error:
-            print("(Connection.updateUser) An error occurred while trying to update the customer's data in the database: ", error)
+            print("(Connection.updateUser) An error occurred while trying to update the user's data in the database: ", error)
 
 
     @staticmethod
