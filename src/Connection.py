@@ -222,3 +222,34 @@ class Connection:
         except Exception as error:
             print("(Connection.getTasks) An error occurred while trying to get the tasks from the database:", error)
 
+
+    @staticmethod
+    def insertTask(data):
+        try:
+            query = QtSql.QSqlQuery()
+            query.prepare("INSERT INTO Tasks "
+                          "(Employee, Client, Service, Price, Hours, Status)"
+                          "VALUES "
+                          "(:Employee, :Client, :Service, :Price, :Hours, :Status)")
+
+            valuesOrder = [":Employee", ":Client", ":Service", ":Price", ":Hours", ":Status"]
+
+            for i in range(len(valuesOrder)):
+                value = data[i]
+                if hasattr(value, "text"):
+                    valueText = value.text()
+                elif hasattr(value, "currentText"):
+                    valueText = value.currentText()
+                else:
+                    valueText = str(value)
+                query.bindValue(valuesOrder[i], valueText)
+
+            if not query.exec():
+                print("(Connection.insertTask) An error ocurred while trying to add the task to the database: ", query.lastError().text())
+                return False
+            return True
+
+        except Exception as error:
+            print("(Connection.insertTask) an error occurred while trying to add the user to the database: ", error)
+
+

@@ -34,3 +34,49 @@ class Tasks:
 
         except Exception as error:
             print("(Tasks.loadTasksTable) an error occurred while trying to load the tasks table: ", error)
+
+
+    @staticmethod
+    def saveTask():
+        try:
+            fieldsData = [Globals.ui.txt_employeeName.text(),
+                          Globals.ui.txt_clientName.text(),
+                          Globals.ui.txt_taskService.text(),
+                          Globals.ui.txt_taskPrice.text(),
+                          Globals.ui.txt_taskHours.text(),
+                          Globals.ui.cmb_taskStatus.currentText()]
+
+            if Globals.ui.cmb_taskService.currentText() == "  -- selecciona --":
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Error")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Critical)
+                mbox.setText("Please choose the current status of the task.")
+                mbox.exec()
+                return
+
+            if not all(fieldsData):
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Error")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Critical)
+                mbox.setText("Please fill all the fields.")
+                mbox.exec()
+                return
+
+            if Connection.insertTask(fieldsData):
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Information")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
+                mbox.setText("The task has been added successfully.")
+                mbox.exec()
+                Tasks.loadTasksTable()
+            else:
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Error")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Critical)
+                mbox.setText("An error has occurred while trying to add the task.")
+                mbox.exec()
+
+        except Exception as error:
+            print("(Users.saveTask) an error occurred while trying to save the new task: ", error)
+
+
