@@ -60,8 +60,13 @@ class Main(QtWidgets.QMainWindow):
         # Table
         Tasks.loadTasksTable()
         Events.resizeTable(Globals.ui.tbl_tasks)
+
         # Buttons
         Globals.ui.btn_saveTask.clicked.connect(Tasks.saveTask)
+
+        # Fields
+        Globals.ui.txt_employeeName.editingFinished.connect(Tasks.checkEmployee)
+        Globals.ui.txt_clientName.editingFinished.connect(Tasks.checkClient)
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)

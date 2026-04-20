@@ -99,6 +99,43 @@ class Connection:
             print("(Connection.getUsersOrderByName) an error occurred while trying to get the users:", error)
 
 
+    @staticmethod
+    def getClientsName():
+        try:
+            clientsList = []
+            query = QtSql.QSqlQuery()
+            query.prepare("SELECT  Name"
+                          "    FROM Users"
+                          "    WHERE User_Type = 'Client'")
+
+            if query.exec():
+                while query.next():
+                    clientsList.append(query.value("Name"))
+
+            return clientsList
+
+        except Exception as error:
+            print("(Connection.getClientsName) an error occurred while trying to get the clients' name from the database:", error)
+
+
+    @staticmethod
+    def getEmployeesName():
+        try:
+            employeesList = []
+            query = QtSql.QSqlQuery()
+            query.prepare("SELECT  Name"
+                          "    FROM Users"
+                          "    WHERE User_Type = 'Employee'")
+
+            if query.exec():
+                while query.next():
+                    employeesList.append(query.value("Name"))
+
+            return employeesList
+
+        except Exception as error:
+            print("(Connection.getEmployeesName) an error occurred while trying to get the employees' name from the database:", error)
+
 
     @staticmethod
     def getUserInfo(email):

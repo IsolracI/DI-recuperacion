@@ -6,6 +6,32 @@ from src import Globals
 class Tasks:
 
     @staticmethod
+    def checkEmployee():
+        existingEmployees = Connection.getEmployeesName()
+        employee = Globals.ui.txt_employeeName.text()
+
+        if employee not in existingEmployees:
+            Globals.ui.txt_employeeName.setStyleSheet("background-color: #FFC0CB; color black")
+            Globals.ui.txt_employeeName.setText(None)
+            Globals.ui.txt_employeeName.setPlaceholderText("The employee entered doesn't exist in the database.")
+        else:
+            Globals.ui.txt_employeeName.setStyleSheet("background-color: rgb(255, 255, 220)")
+
+
+    @staticmethod
+    def checkClient():
+        existingClients = Connection.getClientsName()
+        client = Globals.ui.txt_clientName.text()
+
+        if client not in existingClients:
+            Globals.ui.txt_clientName.setStyleSheet("background-color: #FFC0CB; color black")
+            Globals.ui.txt_clientName.setText(None)
+            Globals.ui.txt_clientName.setPlaceholderText("The client entered doesn't exist in the database.")
+        else:
+            Globals.ui.txt_clientName.setStyleSheet("background-color: rgb(255, 255, 220)")
+
+
+    @staticmethod
     def loadTasksTable():
         try:
             tasks = Connection.getTasks()
