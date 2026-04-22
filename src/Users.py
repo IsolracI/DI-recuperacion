@@ -117,6 +117,24 @@ class Users:
 
 
     @staticmethod
+    def _checkFields():
+        try:
+            fields = [Globals.ui.txt_userDNI.text(),
+                      Globals.ui.txt_userName.text(),
+                      Globals.ui.txt_userAddress.text(),
+                      Globals.ui.txt_userMobile.text(),
+                      Globals.ui.txt_userEmail.text()]
+
+            if all(fields):
+                return True
+            else:
+                return False
+
+        except Exception as error:
+            print("(Users.checkFields) There was an error while trying to check the fields:", error)
+
+
+    @staticmethod
     def loadUsersTable():
         try:
             users = Connection.getUsers(Users.show)
@@ -210,11 +228,11 @@ class Users:
     @staticmethod
     def saveUser():
         try:
-            fieldsData = [Globals.ui.txt_userDNI.text(),
-                          Globals.ui.txt_userName.text(),
-                          Globals.ui.txt_userAddress.text(),
-                          Globals.ui.txt_userMobile.text(),
-                          Globals.ui.txt_userEmail.text(),]
+            fieldsData = [Globals.ui.txt_userDNI,
+                          Globals.ui.txt_userName,
+                          Globals.ui.txt_userAddress,
+                          Globals.ui.txt_userMobile,
+                          Globals.ui.txt_userEmail]
 
             userType = ""
             if Globals.ui.rb_userEmployee.isChecked():
@@ -223,7 +241,7 @@ class Users:
                 userType = "Client"
             fieldsData.append(userType)
 
-            if not all(fieldsData):
+            if not Users._checkFields():
                 mbox = QtWidgets.QMessageBox()
                 mbox.setWindowTitle("Error")
                 mbox.setIcon(QtWidgets.QMessageBox.Icon.Critical)
@@ -267,7 +285,7 @@ class Users:
                 userType = "Client"
             fieldsData.append(userType)
 
-            if not all(fieldsData):
+            if not Users._checkFields():
                 mbox = QtWidgets.QMessageBox()
                 mbox.setWindowTitle("Error")
                 mbox.setIcon(QtWidgets.QMessageBox.Icon.Critical)
