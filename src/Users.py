@@ -278,7 +278,7 @@ class Users:
             mbox = QtWidgets.QMessageBox()
             mbox.setWindowTitle("Modify")
             mbox.setIcon(QtWidgets.QMessageBox.Icon.Question)
-            mbox.setText("Do you want to modify the customer's information?")
+            mbox.setText("Do you want to modify the user's information?")
             mbox.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No)
             mbox.setDefaultButton(QtWidgets.QMessageBox.StandardButton.No)
 
@@ -290,7 +290,7 @@ class Users:
                 mbox = QtWidgets.QMessageBox()
                 mbox.setWindowTitle("Information")
                 mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
-                mbox.setText("The User's information has been modified successfully.")
+                mbox.setText("The user's information has been modified successfully.")
                 mbox.exec()
                 Users.loadUsersTable()
 

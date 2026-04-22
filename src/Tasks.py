@@ -157,7 +157,7 @@ class Tasks:
                 mbox.exec()
 
         except Exception as error:
-            print("(Users.saveTask) an error occurred while trying to save the new task: ", error)
+            print("(Tasks.saveTask) an error occurred while trying to save the new task: ", error)
 
 
     @staticmethod

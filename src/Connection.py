@@ -211,7 +211,7 @@ class Connection:
                 query.bindValue(valuesOrder[i], valueText)
 
             if not query.exec():
-                print(query.lastError().text())
+                print("(Connection.updateUser) An error occurred while trying to update the user's data in the database: ", query.lastError().text())
                 return False
             return True
 
@@ -228,7 +228,7 @@ class Connection:
             query.bindValue(":DNI", dni)
 
             if not query.exec():
-                print(query.lastError().text())
+                print("(Connection.deleteUser) An error occurred while trying to delete the user from the database: ", query.lastError().text())
                 return False
             return True
 

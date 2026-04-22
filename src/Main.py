@@ -64,6 +64,7 @@ class Main(QtWidgets.QMainWindow):
 
         # Buttons
         Globals.ui.btn_saveTask.clicked.connect(Tasks.saveTask)
+        Globals.ui.btn_modifyTask.clicked.connect(Tasks.modifyTask)
 
         # Fields
         Tasks.loadStatusOptions()
