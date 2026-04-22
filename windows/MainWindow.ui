@@ -868,10 +868,13 @@
          </font>
         </property>
         <property name="text">
-         <string>0</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
+        </property>
+        <property name="placeholderText">
+         <string>Hours taken</string>
         </property>
        </widget>
        <widget class="QLabel" name="lbl_taskHours">
@@ -1241,6 +1244,9 @@
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </widget>

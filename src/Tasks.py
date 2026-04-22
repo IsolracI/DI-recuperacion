@@ -244,3 +244,23 @@ class Tasks:
 
         except Exception as error:
             print("(Tasks.deleteTask) an error occurred while trying to delete the task: ", error)
+
+
+    @staticmethod
+    def clearTasksFields():
+        try:
+            fields = [Globals.ui.lbl_taskID,
+                      Globals.ui.txt_employeeName,
+                      Globals.ui.txt_clientName,
+                      Globals.ui.txt_taskService,
+                      Globals.ui.txt_taskPrice,
+                      Globals.ui.txt_taskHours]
+
+            for field in fields:
+                field.clear()
+                field.setStyleSheet("background-color: rgb(255, 255, 255);")
+
+            Globals.ui.cmb_taskStatus.setCurrentIndex(0)
+
+        except Exception as error:
+            print("(Tasks.clearTasksFields) an error occurred while trying to clear the fields:", error)
