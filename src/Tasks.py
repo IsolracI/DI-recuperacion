@@ -134,7 +134,7 @@ class Tasks:
                 mbox.exec()
                 return
 
-            if Globals.ui.cmb_taskService.currentText() == "  -- selecciona --":
+            if Globals.ui.cmb_taskStatus.currentText() == "  -- selecciona --":
                 mbox = QtWidgets.QMessageBox()
                 mbox.setWindowTitle("Error")
                 mbox.setIcon(QtWidgets.QMessageBox.Icon.Critical)
