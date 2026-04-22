@@ -38,6 +38,25 @@ class Tasks:
 
 
     @staticmethod
+    def _checkFields():
+        try:
+            fields = [Globals.ui.lbl_taskID.text(),
+                      Globals.ui.txt_employeeName.text(),
+                      Globals.ui.txt_clientName.text(),
+                      Globals.ui.txt_taskService.text(),
+                      Globals.ui.txt_taskPrice.text(),
+                      Globals.ui.txt_taskHours.text(),
+                      Globals.ui.cmb_taskStatus.currentText()]
+
+            if all(fields):
+                return True
+            else:
+                return False
+
+        except Exception as error:
+            print("(Tasks.checkFields) An error occurred while trying to check the fields:", error)
+
+    @staticmethod
     def loadTasksTable():
         try:
             tasks = Connection.getTasks()
@@ -140,4 +159,53 @@ class Tasks:
         except Exception as error:
             print("(Users.saveTask) an error occurred while trying to save the new task: ", error)
 
+
+    @staticmethod
+    def modifyTask():
+        try:
+            fieldsData = [Globals.ui.lbl_taskID,
+                          Globals.ui.txt_employeeName,
+                          Globals.ui.txt_clientName,
+                          Globals.ui.txt_taskService,
+                          Globals.ui.txt_taskPrice,
+                          Globals.ui.txt_taskHours,
+                          Globals.ui.cmb_taskStatus]
+
+            if not Tasks._checkFields():
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Error")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Critical)
+                mbox.setText("Please fill all the fields")
+                mbox.exec()
+                return
+
+            if Globals.ui.cmb_taskStatus.currentText() == "  -- selecciona --":
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Error")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Critical)
+                mbox.setText("Please specify the current status of the task.")
+                mbox.exec()
+                return
+
+            mbox = QtWidgets.QMessageBox()
+            mbox.setWindowTitle("Modify")
+            mbox.setIcon(QtWidgets.QMessageBox.Icon.Question)
+            mbox.setText("Do you want to modify the task's information?")
+            mbox.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No)
+            mbox.setDefaultButton(QtWidgets.QMessageBox.StandardButton.No)
+
+            if mbox.exec() == QtWidgets.QMessageBox.StandardButton.No:
+                mbox.hide()
+                return
+
+            if Connection.updateTask(fieldsData):
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Information")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
+                mbox.setText("The task's information has been modified successfully.")
+                mbox.exec()
+                Tasks.loadTasksTable()
+
+        except Exception as error:
+            print("(Tasks.modifyTask) an error occurred while trying to modify the task: ", error)
 

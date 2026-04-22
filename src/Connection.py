@@ -309,3 +309,31 @@ class Connection:
             print("(Connection.insertTask) an error occurred while trying to add the user to the database: ", error)
 
 
+    @staticmethod
+    def updateTask(data):
+        try:
+            query = QtSql.QSqlQuery()
+            query.prepare("UPDATE Tasks set "
+                          "    Employee = :Employee, Client = :Client, Service = :Service, Price = :Price, Hours = :Hours, Status = :Status "
+                          "WHERE Task_ID = :Task_ID")
+
+            valuesOrder = [":Task_ID", ":Employee", ":Client", ":Service", ":Price", ":Hours", ":Status"]
+
+            for i in range(len(valuesOrder)):
+                value = data[i]
+
+                if hasattr(value, "text"):
+                    valueText = value.text()
+                elif hasattr(value, "currentText"):
+                    valueText = value.currentText()
+                else:
+                    valueText = str(value)
+                query.bindValue(valuesOrder[i], valueText)
+
+            if not query.exec():
+                print("(Connection.updateTask) An error occurred while trying to update the task's data in the database:", query.lastError().text())
+                return False
+            return True
+
+        except Exception as error:
+            print("(Connection.updateTask) An error occurred while trying to update the task's data in the database:", error)
