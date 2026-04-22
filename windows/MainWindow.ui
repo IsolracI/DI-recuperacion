@@ -727,6 +727,9 @@
         <property name="text">
          <string/>
         </property>
+        <property name="placeholderText">
+         <string>Enter the employee's name</string>
+        </property>
        </widget>
        <widget class="QLabel" name="lbl_employeeName">
         <property name="geometry">
@@ -765,6 +768,9 @@
         <property name="text">
          <string/>
         </property>
+        <property name="placeholderText">
+         <string>Enter the client's name</string>
+        </property>
        </widget>
        <widget class="QLabel" name="lbl_clientName">
         <property name="geometry">
@@ -789,9 +795,9 @@
        <widget class="QLineEdit" name="txt_taskService">
         <property name="geometry">
          <rect>
-          <x>10</x>
+          <x>90</x>
           <y>290</y>
-          <width>350</width>
+          <width>360</width>
           <height>20</height>
          </rect>
         </property>
@@ -803,13 +809,16 @@
         <property name="text">
          <string/>
         </property>
+        <property name="placeholderText">
+         <string>Enter the service done to the client</string>
+        </property>
        </widget>
        <widget class="QLabel" name="lbl_taskService">
         <property name="geometry">
          <rect>
-          <x>10</x>
+          <x>90</x>
           <y>265</y>
-          <width>115</width>
+          <width>91</width>
           <height>20</height>
          </rect>
         </property>
@@ -827,7 +836,7 @@
        <widget class="QLabel" name="lbl_taskStatus">
         <property name="geometry">
          <rect>
-          <x>720</x>
+          <x>760</x>
           <y>265</y>
           <width>70</width>
           <height>20</height>
@@ -847,9 +856,9 @@
        <widget class="QLineEdit" name="txt_taskHours">
         <property name="geometry">
          <rect>
-          <x>520</x>
+          <x>610</x>
           <y>290</y>
-          <width>140</width>
+          <width>120</width>
           <height>20</height>
          </rect>
         </property>
@@ -868,7 +877,7 @@
        <widget class="QLabel" name="lbl_taskHours">
         <property name="geometry">
          <rect>
-          <x>520</x>
+          <x>610</x>
           <y>265</y>
           <width>70</width>
           <height>20</height>
@@ -888,9 +897,9 @@
        <widget class="QComboBox" name="cmb_taskStatus">
         <property name="geometry">
          <rect>
-          <x>720</x>
+          <x>760</x>
           <y>290</y>
-          <width>180</width>
+          <width>160</width>
           <height>20</height>
          </rect>
         </property>
@@ -1149,7 +1158,7 @@
        <widget class="QLabel" name="lbl_taskPrice">
         <property name="geometry">
          <rect>
-          <x>390</x>
+          <x>480</x>
           <y>265</y>
           <width>70</width>
           <height>20</height>
@@ -1169,7 +1178,7 @@
        <widget class="QLineEdit" name="txt_taskPrice">
         <property name="geometry">
          <rect>
-          <x>390</x>
+          <x>480</x>
           <y>290</y>
           <width>100</width>
           <height>20</height>
@@ -1185,6 +1194,53 @@
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
+        </property>
+        <property name="placeholderText">
+         <string>Price / Hour</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_taskIDTitle">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>265</y>
+          <width>41</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string> ID</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lbl_taskID">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>290</y>
+          <width>50</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: white;</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
       </widget>

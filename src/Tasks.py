@@ -69,6 +69,35 @@ class Tasks:
 
 
     @staticmethod
+    def loadTaskInfo():
+        try:
+            selectedRow = Globals.ui.tbl_tasks.currentRow()
+            taskId = Globals.ui.tbl_tasks.item(selectedRow, 0).text()
+
+            taskInfo = Connection.getTaskInfo(taskId)
+
+            widgets = [Globals.ui.lbl_taskID,
+                       Globals.ui.txt_employeeName,
+                       Globals.ui.txt_clientName,
+                       Globals.ui.txt_taskService,
+                       Globals.ui.txt_taskPrice,
+                       Globals.ui.txt_taskHours,
+                       Globals.ui.cmb_taskStatus]
+
+            for widget in widgets:
+                widget.setStyleSheet("background-color: white;")
+
+            for i in range(len(taskInfo)):
+                if hasattr(widgets[i], "setText"):
+                    widgets[i].setText(str(taskInfo[i]))
+                if hasattr(widgets[i], "setCurrentText"):
+                    widgets[i].setCurrentText(str(taskInfo[i]))
+
+        except Exception as error:
+            print("(Tasks.loadTaskInfo) an error occurred while trying to load the tasks' info:", error)
+
+
+    @staticmethod
     def saveTask():
         try:
             fieldsData = [Globals.ui.txt_employeeName.text(),

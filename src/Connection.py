@@ -1,7 +1,6 @@
 from PyQt6 import QtWidgets, QtSql
 import os
 
-
 class Connection:
 
     @staticmethod
@@ -258,6 +257,26 @@ class Connection:
 
         except Exception as error:
             print("(Connection.getTasks) An error occurred while trying to get the tasks from the database:", error)
+
+
+    @staticmethod
+    def getTaskInfo(taskId):
+        try:
+            taskInfo = []
+            query = QtSql.QSqlQuery()
+            query.prepare("SELECT  *"
+                          "    FROM Tasks "
+                          "    WHERE Task_ID = :TaskId")
+            query.bindValue(":TaskId", taskId)
+
+            if query.exec():
+                while query.next():
+                    for i in range(query.record().count()):
+                        taskInfo.append(query.value(i))
+            return taskInfo
+
+        except Exception as error:
+            print("(Connection.getTaskInfo) An error occurred while trying to get the task's info from the database:", error)
 
 
     @staticmethod

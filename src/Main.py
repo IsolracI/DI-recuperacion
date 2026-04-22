@@ -59,6 +59,7 @@ class Main(QtWidgets.QMainWindow):
 
         # Table
         Tasks.loadTasksTable()
+        Globals.ui.tbl_tasks.clicked.connect(Tasks.loadTaskInfo)
         Events.resizeTable(Globals.ui.tbl_tasks)
 
         # Buttons
