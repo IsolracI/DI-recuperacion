@@ -337,3 +337,21 @@ class Connection:
 
         except Exception as error:
             print("(Connection.updateTask) An error occurred while trying to update the task's data in the database:", error)
+
+
+    @staticmethod
+    def deleteTask(taskId):
+        try:
+            query = QtSql.QSqlQuery()
+            query.prepare("DELETE FROM Tasks"
+                          "    WHERE Task_ID = :TaskId")
+            query.bindValue(":TaskId", taskId)
+
+            if not query.exec():
+                print("(Connection.deleteTask) An error occurred while trying to delete the task from the database:", query.lastError().text())
+                return False
+            return True
+
+        except Exception as error:
+            print("(Connection.deleteTask) An error occurred while trying to delete the task from the database:", error)
+

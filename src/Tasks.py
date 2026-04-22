@@ -209,3 +209,38 @@ class Tasks:
         except Exception as error:
             print("(Tasks.modifyTask) an error occurred while trying to modify the task: ", error)
 
+
+    @staticmethod
+    def deleteTask():
+        try:
+            taskId = Globals.ui.lbl_taskID.text()
+
+            mbox = QtWidgets.QMessageBox()
+            mbox.setWindowTitle("Warning")
+            mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
+            mbox.setText("Delete Task?")
+            mbox.setStandardButtons(QtWidgets.QMessageBox.StandardButton.Yes | QtWidgets.QMessageBox.StandardButton.No)
+            mbox.setDefaultButton(QtWidgets.QMessageBox.StandardButton.No)
+
+            if mbox.exec() == QtWidgets.QMessageBox.StandardButton.Yes:
+                if Connection.deleteTask(taskId):
+                    successMbox = QtWidgets.QMessageBox()
+                    successMbox.setWindowTitle("Information")
+                    successMbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
+                    successMbox.setText("The task has been deleted successfully.")
+                    successMbox.exec()
+                    Tasks.loadTasksTable()
+                    return
+
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Error")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Critical)
+                mbox.setText("An error has occurred while trying to delete the task.")
+                mbox.exec()
+                return
+
+            else:
+                return
+
+        except Exception as error:
+            print("(Tasks.deleteTask) an error occurred while trying to delete the task: ", error)
