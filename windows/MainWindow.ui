@@ -795,9 +795,9 @@
        <widget class="QLineEdit" name="txt_taskService">
         <property name="geometry">
          <rect>
-          <x>90</x>
+          <x>100</x>
           <y>290</y>
-          <width>360</width>
+          <width>350</width>
           <height>20</height>
          </rect>
         </property>
@@ -816,7 +816,7 @@
        <widget class="QLabel" name="lbl_taskService">
         <property name="geometry">
          <rect>
-          <x>90</x>
+          <x>100</x>
           <y>265</y>
           <width>91</width>
           <height>20</height>
@@ -945,7 +945,7 @@
         </column>
         <column>
          <property name="text">
-          <string>Employee</string>
+          <string>Client</string>
          </property>
          <property name="font">
           <font>
@@ -956,7 +956,7 @@
         </column>
         <column>
          <property name="text">
-          <string>Client</string>
+          <string>Employee</string>
          </property>
          <property name="font">
           <font>
@@ -1202,7 +1202,7 @@
          <string>Price / Hour</string>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_taskIDTitle">
+       <widget class="QLabel" name="lbl_taskID">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -1222,12 +1222,15 @@
          <string> ID</string>
         </property>
        </widget>
-       <widget class="QLabel" name="lbl_taskID">
+       <widget class="QLineEdit" name="txt_taskID">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
         <property name="geometry">
          <rect>
           <x>10</x>
           <y>290</y>
-          <width>50</width>
+          <width>60</width>
           <height>20</height>
          </rect>
         </property>
@@ -1236,17 +1239,14 @@
           <pointsize>12</pointsize>
          </font>
         </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: white;</string>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::StyledPanel</enum>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="placeholderText">
+         <string>Task Id</string>
         </property>
        </widget>
       </widget>

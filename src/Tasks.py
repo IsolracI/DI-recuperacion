@@ -40,9 +40,9 @@ class Tasks:
     @staticmethod
     def _checkFields():
         try:
-            fields = [Globals.ui.lbl_taskID.text(),
-                      Globals.ui.txt_employeeName.text(),
+            fields = [Globals.ui.txt_taskID.text(),
                       Globals.ui.txt_clientName.text(),
+                      Globals.ui.txt_employeeName.text(),
                       Globals.ui.txt_taskService.text(),
                       Globals.ui.txt_taskPrice.text(),
                       Globals.ui.txt_taskHours.text(),
@@ -95,9 +95,9 @@ class Tasks:
 
             taskInfo = Connection.getTaskInfo(taskId)
 
-            widgets = [Globals.ui.lbl_taskID,
-                       Globals.ui.txt_employeeName,
+            widgets = [Globals.ui.txt_taskID,
                        Globals.ui.txt_clientName,
+                       Globals.ui.txt_employeeName,
                        Globals.ui.txt_taskService,
                        Globals.ui.txt_taskPrice,
                        Globals.ui.txt_taskHours,
@@ -119,8 +119,8 @@ class Tasks:
     @staticmethod
     def saveTask():
         try:
-            fieldsData = [Globals.ui.txt_employeeName.text(),
-                          Globals.ui.txt_clientName.text(),
+            fieldsData = [Globals.ui.txt_clientName.text(),
+                          Globals.ui.txt_employeeName.text(),
                           Globals.ui.txt_taskService.text(),
                           Globals.ui.txt_taskPrice.text(),
                           Globals.ui.txt_taskHours.text(),
@@ -163,9 +163,9 @@ class Tasks:
     @staticmethod
     def modifyTask():
         try:
-            fieldsData = [Globals.ui.lbl_taskID,
-                          Globals.ui.txt_employeeName,
+            fieldsData = [Globals.ui.txt_taskID,
                           Globals.ui.txt_clientName,
+                          Globals.ui.txt_employeeName,
                           Globals.ui.txt_taskService,
                           Globals.ui.txt_taskPrice,
                           Globals.ui.txt_taskHours,
@@ -213,7 +213,7 @@ class Tasks:
     @staticmethod
     def deleteTask():
         try:
-            taskId = Globals.ui.lbl_taskID.text()
+            taskId = Globals.ui.txt_taskID.text()
 
             mbox = QtWidgets.QMessageBox()
             mbox.setWindowTitle("Warning")
@@ -249,9 +249,9 @@ class Tasks:
     @staticmethod
     def clearTasksFields():
         try:
-            fields = [Globals.ui.lbl_taskID,
-                      Globals.ui.txt_employeeName,
+            fields = [Globals.ui.txt_taskID,
                       Globals.ui.txt_clientName,
+                      Globals.ui.txt_employeeName,
                       Globals.ui.txt_taskService,
                       Globals.ui.txt_taskPrice,
                       Globals.ui.txt_taskHours]

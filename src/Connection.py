@@ -284,11 +284,11 @@ class Connection:
         try:
             query = QtSql.QSqlQuery()
             query.prepare("INSERT INTO Tasks "
-                          "(Employee, Client, Service, Price, Hours, Status)"
+                          "(Client, Employee, Service, Price, Hours, Status)"
                           "VALUES "
-                          "(:Employee, :Client, :Service, :Price, :Hours, :Status)")
+                          "(:Client, :Employee, :Service, :Price, :Hours, :Status)")
 
-            valuesOrder = [":Employee", ":Client", ":Service", ":Price", ":Hours", ":Status"]
+            valuesOrder = [":Client", ":Employee", ":Service", ":Price", ":Hours", ":Status"]
 
             for i in range(len(valuesOrder)):
                 value = data[i]
@@ -314,10 +314,10 @@ class Connection:
         try:
             query = QtSql.QSqlQuery()
             query.prepare("UPDATE Tasks set "
-                          "    Employee = :Employee, Client = :Client, Service = :Service, Price = :Price, Hours = :Hours, Status = :Status "
+                          "    Client = :Client, Employee = :Employee, Service = :Service, Price = :Price, Hours = :Hours, Status = :Status "
                           "WHERE Task_ID = :Task_ID")
 
-            valuesOrder = [":Task_ID", ":Employee", ":Client", ":Service", ":Price", ":Hours", ":Status"]
+            valuesOrder = [":Task_ID", ":Client", ":Employee", ":Service", ":Price", ":Hours", ":Status"]
 
             for i in range(len(valuesOrder)):
                 value = data[i]
