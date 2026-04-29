@@ -874,7 +874,7 @@
          <set>Qt::AlignCenter</set>
         </property>
         <property name="placeholderText">
-         <string>Hours taken</string>
+         <string>0</string>
         </property>
        </widget>
        <widget class="QLabel" name="lbl_taskHours">
@@ -1225,7 +1225,7 @@
          <set>Qt::AlignCenter</set>
         </property>
         <property name="placeholderText">
-         <string>Price / Hour</string>
+         <string>0.00</string>
         </property>
        </widget>
        <widget class="QLabel" name="lbl_taskID">

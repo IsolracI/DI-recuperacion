@@ -1,6 +1,7 @@
 from PyQt6 import QtWidgets, QtCore, QtGui
 from src.Connection import *
 from src import Globals
+import re
 
 class Tasks:
 
@@ -28,7 +29,7 @@ class Tasks:
     @staticmethod
     def checkEmployee():
         existingEmployees = Connection.getEmployeesName()
-        employee = Globals.ui.txt_employeeName.text()
+        employee = Globals.ui.txt_employeeName.text().strip()
 
         if employee not in existingEmployees:
             Globals.ui.txt_employeeName.setStyleSheet("background-color: #FFC0CB; color black")
@@ -41,7 +42,7 @@ class Tasks:
     @staticmethod
     def checkClient():
         existingClients = Connection.getClientsName()
-        client = Globals.ui.txt_clientName.text()
+        client = Globals.ui.txt_clientName.text().strip()
 
         if client not in existingClients:
             Globals.ui.txt_clientName.setStyleSheet("background-color: #FFC0CB; color black")
@@ -49,6 +50,39 @@ class Tasks:
             Globals.ui.txt_clientName.setPlaceholderText("The client entered doesn't exist in the database.")
         else:
             Globals.ui.txt_clientName.setStyleSheet("background-color: rgb(255, 255, 220)")
+
+
+    @staticmethod
+    def checkPrice():
+        try:
+            pattern = r'^\d+([.,]\d{1,2})?$'
+            price = Globals.ui.txt_taskPrice.text().strip()
+
+            if re.match(pattern, price):
+                Globals.ui.txt_taskPrice.setStyleSheet("background-color: rgb(255, 255, 220)")
+            else:
+                Globals.ui.txt_taskPrice.setStyleSheet("background-color: #FFC0CB; color black")
+                Globals.ui.txt_taskPrice.setText(None)
+                Globals.ui.txt_taskPrice.setPlaceholderText("Format: 0.00")
+
+        except Exception as error:
+            print("(Tasks.checkPrice) An error occurred while trying check the price: ", error)
+
+
+    @staticmethod
+    def checkTasksHours():
+        try:
+            hours = Globals.ui.txt_taskHours.text().strip()
+
+            if not hours or hours <= 0:
+                Globals.ui.txt_taskHours.setStyleSheet("background-color: #FFC0CB; color black")
+                Globals.ui.txt_taskHours.setText(None)
+                Globals.ui.txt_taskHours.setPlaceholderText("0")
+            else:
+                Globals.ui.txt_taskHours.setStyleSheet("background-color: rgb(255, 255, 220)")
+
+        except Exception as error:
+            print("(Tasks.checkTaskHours) An error occurred while trying check the hours: ", error)
 
 
     @staticmethod

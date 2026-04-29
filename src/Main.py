@@ -77,6 +77,8 @@ class Main(QtWidgets.QMainWindow):
         Tasks.loadStatusOptions()
         Globals.ui.txt_employeeName.editingFinished.connect(Tasks.checkEmployee)
         Globals.ui.txt_clientName.editingFinished.connect(Tasks.checkClient)
+        Globals.ui.txt_taskPrice.editingFinished.connect(Tasks.checkPrice)
+        Globals.ui.txt_taskHours.editingFinished.connect(Tasks.checkTasksHours)
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
