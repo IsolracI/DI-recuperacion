@@ -33,7 +33,7 @@ class Tasks:
 
         if employee not in existingEmployees:
             Globals.ui.txt_employeeName.setStyleSheet("background-color: #FFC0CB; color black")
-            Globals.ui.txt_employeeName.setText(None)
+            Globals.ui.txt_employeeName.clear()
             Globals.ui.txt_employeeName.setPlaceholderText("The employee entered doesn't exist in the database.")
         else:
             Globals.ui.txt_employeeName.setStyleSheet("background-color: rgb(255, 255, 220)")
@@ -44,9 +44,9 @@ class Tasks:
         existingClients = Connection.getClientsName()
         client = Globals.ui.txt_clientName.text().strip()
 
-        if client not in existingClients:
+        if not client or client not in existingClients:
             Globals.ui.txt_clientName.setStyleSheet("background-color: #FFC0CB; color black")
-            Globals.ui.txt_clientName.setText(None)
+            Globals.ui.txt_clientName.clear()
             Globals.ui.txt_clientName.setPlaceholderText("The client entered doesn't exist in the database.")
         else:
             Globals.ui.txt_clientName.setStyleSheet("background-color: rgb(255, 255, 220)")
@@ -62,7 +62,7 @@ class Tasks:
                 Globals.ui.txt_taskPrice.setStyleSheet("background-color: rgb(255, 255, 220)")
             else:
                 Globals.ui.txt_taskPrice.setStyleSheet("background-color: #FFC0CB; color black")
-                Globals.ui.txt_taskPrice.setText(None)
+                Globals.ui.txt_taskPrice.clear()
                 Globals.ui.txt_taskPrice.setPlaceholderText("Format: 0.00")
 
         except Exception as error:
@@ -70,13 +70,37 @@ class Tasks:
 
 
     @staticmethod
+    def checkService():
+        try:
+            service = Globals.ui.txt_taskService.text().strip()
+
+            if not service:
+                Globals.ui.txt_taskService.setStyleSheet("background-color: #FFC0CB; color black")
+                Globals.ui.txt_taskService.clear()
+                Globals.ui.txt_taskService.setPlaceholderText("Please specify the service.")
+            else:
+                Globals.ui.txt_taskService.setStyleSheet("background-color: rgb(255, 255, 220)")
+
+        except Exception as error:
+            print("(Tasks.checkService) An error occurred while trying check the service: ", error)
+
+
+    @staticmethod
     def checkTasksHours():
         try:
             hours = Globals.ui.txt_taskHours.text().strip()
 
-            if not hours or hours <= 0:
+            if not hours:
                 Globals.ui.txt_taskHours.setStyleSheet("background-color: #FFC0CB; color black")
-                Globals.ui.txt_taskHours.setText(None)
+                Globals.ui.txt_taskHours.clear()
+                Globals.ui.txt_taskHours.setPlaceholderText("0")
+                return
+
+            intHours = int(hours)
+
+            if intHours <= 0:
+                Globals.ui.txt_taskHours.setStyleSheet("background-color: #FFC0CB; color black")
+                Globals.ui.txt_taskHours.clear()
                 Globals.ui.txt_taskHours.setPlaceholderText("0")
             else:
                 Globals.ui.txt_taskHours.setStyleSheet("background-color: rgb(255, 255, 220)")
@@ -311,6 +335,14 @@ class Tasks:
         try:
             taskId = Globals.ui.txt_taskID.text()
 
+            if not taskId:
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Error")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Critical)
+                mbox.setText("No task selected.")
+                mbox.exec()
+                return
+
             mbox = QtWidgets.QMessageBox()
             mbox.setWindowTitle("Warning")
             mbox.setIcon(QtWidgets.QMessageBox.Icon.Warning)
@@ -356,6 +388,11 @@ class Tasks:
                 field.clear()
                 field.setStyleSheet("background-color: rgb(255, 255, 255);")
 
+            Globals.ui.txt_employeeName.setPlaceholderText("Enter the employee's name")
+            Globals.ui.txt_clientName.setPlaceholderText("Enter the client's name")
+            Globals.ui.txt_taskService.setPlaceholderText("Enter the service given to the client")
+            Globals.ui.txt_taskPrice.setPlaceholderText("0.00")
+            Globals.ui.txt_taskHours.setPlaceholderText("0")
             Globals.ui.cmb_taskStatus.setCurrentIndex(0)
 
         except Exception as error:

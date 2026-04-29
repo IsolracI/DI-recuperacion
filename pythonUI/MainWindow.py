@@ -582,7 +582,7 @@ class Ui_MainWindow(object):
         self.lbl_employeeName.setText(_translate("MainWindow", " Employee"))
         self.txt_clientName.setPlaceholderText(_translate("MainWindow", "Enter the client\'s name"))
         self.lbl_clientName.setText(_translate("MainWindow", " Client"))
-        self.txt_taskService.setPlaceholderText(_translate("MainWindow", "Enter the service done to the client"))
+        self.txt_taskService.setPlaceholderText(_translate("MainWindow", "Enter the service given to the client"))
         self.lbl_taskService.setText(_translate("MainWindow", " Service"))
         self.lbl_taskStatus.setText(_translate("MainWindow", " Status"))
         self.txt_taskHours.setPlaceholderText(_translate("MainWindow", "0"))

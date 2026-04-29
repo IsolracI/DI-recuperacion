@@ -79,6 +79,7 @@ class Main(QtWidgets.QMainWindow):
         Globals.ui.txt_clientName.editingFinished.connect(Tasks.checkClient)
         Globals.ui.txt_taskPrice.editingFinished.connect(Tasks.checkPrice)
         Globals.ui.txt_taskHours.editingFinished.connect(Tasks.checkTasksHours)
+        Globals.ui.txt_taskService.editingFinished.connect(Tasks.checkService)
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)

@@ -810,7 +810,7 @@
          <string/>
         </property>
         <property name="placeholderText">
-         <string>Enter the service done to the client</string>
+         <string>Enter the service given to the client</string>
         </property>
        </widget>
        <widget class="QLabel" name="lbl_taskService">
