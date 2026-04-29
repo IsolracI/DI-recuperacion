@@ -260,6 +260,48 @@ class Connection:
 
 
     @staticmethod
+    def getEmployeeTasks(employee):
+        try:
+            tasksList = []
+            query = QtSql.QSqlQuery()
+            query.prepare("SELECT  *"
+                          "    FROM Tasks "
+                          "    WHERE Employee = :Employee ")
+            query.bindValue(":Employee", employee)
+
+            if query.exec():
+                while query.next():
+                    row = [query.value(i) for i in range(query.record().count())]
+                    tasksList.append(row)
+
+            return tasksList
+
+        except Exception as error:
+            print("(Connection.getEmployeeTasks) An error occurred while trying to get the employee's tasks from the database:", error)
+
+
+    @staticmethod
+    def getClientTasks(client):
+        try:
+            tasksList = []
+            query = QtSql.QSqlQuery()
+            query.prepare("SELECT  *"
+                          "    FROM Tasks "
+                          "    WHERE Client = :Client ")
+            query.bindValue(":Client", client)
+
+            if query.exec():
+                while query.next():
+                    row = [query.value(i) for i in range(query.record().count())]
+                    tasksList.append(row)
+
+            return tasksList
+
+        except Exception as error:
+            print("(Connection.getClientTasks) An error occurred while trying to get the client's tasks from the database:", error)
+
+
+    @staticmethod
     def getTaskInfo(taskId):
         try:
             taskInfo = []

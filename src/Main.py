@@ -58,7 +58,7 @@ class Main(QtWidgets.QMainWindow):
                #################
 
         # Table
-        Tasks.loadTasksTable()
+        Tasks.loadAllTasks()
         Globals.ui.tbl_tasks.clicked.connect(Tasks.loadTaskInfo)
         Events.resizeTable(Globals.ui.tbl_tasks)
 
@@ -66,7 +66,10 @@ class Main(QtWidgets.QMainWindow):
         Globals.ui.btn_saveTask.clicked.connect(Tasks.saveTask)
         Globals.ui.btn_modifyTask.clicked.connect(Tasks.modifyTask)
         Globals.ui.btn_deleteTask.clicked.connect(Tasks.deleteTask)
+        Globals.ui.btn_reloadTask.clicked.connect(Tasks.loadAllTasks)
         Globals.ui.btn_clearTask.clicked.connect(Tasks.clearTasksFields)
+        Globals.ui.btn_searchClient.clicked.connect(Tasks.loadClientTasks)
+        Globals.ui.btn_searchEmployee.clicked.connect(Tasks.loadEmployeesTasks)
 
         # Fields
         Tasks.loadStatusOptions()

@@ -1115,6 +1115,32 @@
           </widget>
          </item>
          <item>
+          <widget class="QPushButton" name="btn_reloadTask">
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>80</width>
+             <height>25</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Reload</string>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QPushButton" name="btn_deleteTask">
            <property name="minimumSize">
             <size>
@@ -1247,6 +1273,76 @@
         </property>
         <property name="placeholderText">
          <string>Task Id</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_searchEmployee">
+        <property name="geometry">
+         <rect>
+          <x>590</x>
+          <y>95</y>
+          <width>32</width>
+          <height>32</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../../../Proyecto/templates/assets/lens_icon.png</normaloff>../../../Proyecto/templates/assets/lens_icon.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_searchClient">
+        <property name="geometry">
+         <rect>
+          <x>590</x>
+          <y>215</y>
+          <width>32</width>
+          <height>32</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../../../Proyecto/templates/assets/lens_icon.png</normaloff>../../../Proyecto/templates/assets/lens_icon.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
         </property>
        </widget>
       </widget>

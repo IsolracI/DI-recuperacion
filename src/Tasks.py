@@ -57,10 +57,8 @@ class Tasks:
             print("(Tasks.checkFields) An error occurred while trying to check the fields:", error)
 
     @staticmethod
-    def loadTasksTable():
+    def _loadTasksTable(tasks):
         try:
-            tasks = Connection.getTasks()
-
             index = 0
             uiTable = Globals.ui.tbl_tasks
             uiTable.clearContents()
@@ -85,6 +83,56 @@ class Tasks:
 
         except Exception as error:
             print("(Tasks.loadTasksTable) an error occurred while trying to load the tasks table: ", error)
+
+
+    @staticmethod
+    def loadAllTasks():
+        try:
+            tasks = Connection.getTasks()
+            Tasks._loadTasksTable(tasks)
+
+        except Exception as error:
+            print("(Tasks.loadAllTasks) An error occurred while trying to load all tasks on the table: ", error)
+
+
+    @staticmethod
+    def loadEmployeesTasks():
+        try:
+            employee = Globals.ui.txt_employeeName.text()
+
+            if not employee:
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Error")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Critical)
+                mbox.setText("The employee's field is empty")
+                mbox.exec()
+                return
+
+            employeeTasks = Connection.getEmployeeTasks(employee)
+            Tasks._loadTasksTable(employeeTasks)
+
+        except Exception as error:
+            print("(Tasks.loadEmployeesTasks) an error occurred while trying to load the employee's tasks on the table: ", error)
+
+
+    @staticmethod
+    def loadClientTasks():
+        try:
+            client = Globals.ui.txt_clientName.text()
+
+            if not client:
+                mbox = QtWidgets.QMessageBox()
+                mbox.setWindowTitle("Error")
+                mbox.setIcon(QtWidgets.QMessageBox.Icon.Critical)
+                mbox.setText("The client's field is empty")
+                mbox.exec()
+                return
+
+            clientTasks = Connection.getClientTasks(client)
+            Tasks._loadTasksTable(clientTasks)
+
+        except Exception as error:
+            print("(Tasks.loadClientTasks) an error occurred while trying to load the client's tasks on the table: ", error)
 
 
     @staticmethod
@@ -148,7 +196,7 @@ class Tasks:
                 mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
                 mbox.setText("The task has been added successfully.")
                 mbox.exec()
-                Tasks.loadTasksTable()
+                Tasks.loadAllTasks()
             else:
                 mbox = QtWidgets.QMessageBox()
                 mbox.setWindowTitle("Error")
@@ -204,7 +252,7 @@ class Tasks:
                 mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
                 mbox.setText("The task's information has been modified successfully.")
                 mbox.exec()
-                Tasks.loadTasksTable()
+                Tasks.loadAllTasks()
 
         except Exception as error:
             print("(Tasks.modifyTask) an error occurred while trying to modify the task: ", error)
@@ -229,7 +277,7 @@ class Tasks:
                     successMbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
                     successMbox.setText("The task has been deleted successfully.")
                     successMbox.exec()
-                    Tasks.loadTasksTable()
+                    Tasks.loadAllTasks()
                     return
 
                 mbox = QtWidgets.QMessageBox()
