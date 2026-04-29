@@ -682,7 +682,7 @@
          <string/>
         </property>
         <property name="pixmap">
-         <pixmap>../assets/employee_icon.png</pixmap>
+         <pixmap>../assets/client_icon.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -1296,12 +1296,15 @@
           <height>32</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: white;</string>
+        </property>
         <property name="text">
          <string/>
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>../../../Proyecto/templates/assets/lens_icon.png</normaloff>../../../Proyecto/templates/assets/lens_icon.png</iconset>
+          <normaloff>../assets/lens_icon.png</normaloff>../assets/lens_icon.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -1331,12 +1334,15 @@
           <height>32</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: white;</string>
+        </property>
         <property name="text">
          <string/>
         </property>
         <property name="icon">
          <iconset>
-          <normaloff>../../../Proyecto/templates/assets/lens_icon.png</normaloff>../../../Proyecto/templates/assets/lens_icon.png</iconset>
+          <normaloff>../assets/lens_icon.png</normaloff>../assets/lens_icon.png</iconset>
         </property>
         <property name="iconSize">
          <size>

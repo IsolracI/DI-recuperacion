@@ -57,6 +57,8 @@ class Main(QtWidgets.QMainWindow):
         ####   ##-## TASKS ##-##   ####
                #################
 
+        Tasks.loadTasksAssets()
+
         # Table
         Tasks.loadAllTasks()
         Globals.ui.tbl_tasks.clicked.connect(Tasks.loadTaskInfo)

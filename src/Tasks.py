@@ -1,9 +1,23 @@
-from PyQt6 import QtWidgets, QtCore
+from PyQt6 import QtWidgets, QtCore, QtGui
 from src.Connection import *
 from src import Globals
 
-
 class Tasks:
+
+    @staticmethod
+    def loadTasksAssets():
+        try:
+            employeeIcon = QtGui.QPixmap("../assets/employee_icon.png")
+            ClientIcon = QtGui.QPixmap("../assets/client_icon.png")
+            lensIcon = QtGui.QIcon("../assets/lens_icon.png")
+
+            Globals.ui.employeePortrait.setPixmap(employeeIcon)
+            Globals.ui.clientPortrait.setPixmap(ClientIcon)
+            Globals.ui.btn_searchEmployee.setIcon(lensIcon)
+            Globals.ui.btn_searchClient.setIcon(lensIcon)
+
+        except Exception as error:
+            print("(Tasks.loadAssets) An error occurred while trying load the assets: ", error)
 
     @staticmethod
     def loadStatusOptions():
@@ -54,7 +68,7 @@ class Tasks:
                 return False
 
         except Exception as error:
-            print("(Tasks.checkFields) An error occurred while trying to check the fields:", error)
+            print("(Tasks.checkFields) An error occurred while trying to check the fields: ", error)
 
     @staticmethod
     def _loadTasksTable(tasks):
