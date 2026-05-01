@@ -27,6 +27,7 @@ class Main(QtWidgets.QMainWindow):
 
         # Menu bar
         Globals.ui.actionUsers_Report.triggered.connect(Reports.usersReport)
+        Globals.ui.actionTasks_Report.triggered.connect(Reports.tasksReport)
 
                #################
         ####   ##-## USERS ##-##   ####

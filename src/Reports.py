@@ -100,10 +100,10 @@ class Reports:
                     y = 780
 
                 reportCanvas.setFont("Helvetica", 8)
-                reportCanvas.drawCentredString(100, y, str(record[1]))
+                reportCanvas.drawString(60, y, str(record[1]))
                 reportCanvas.drawCentredString(225, y, str(record[3]))
-                reportCanvas.drawCentredString(355, y, str(record[4]))
-                reportCanvas.drawCentredString(465, y, str(record[5]))
+                reportCanvas.drawString(310, y, str(record[4]))
+                reportCanvas.drawString(448, y, str(record[5]))
                 y -= 20
 
             reportCanvas.save()
@@ -113,4 +113,64 @@ class Reports:
                     os.startfile(pdfPath)
 
         except Exception as error:
-            print("(Reports.usersReport) an error occurred while trying to make the users reports: ", error)
+            print("(Reports.usersReport) an error occurred while trying to make the users report: ", error)
+
+
+    @staticmethod
+    def tasksReport():
+        try:
+            rootPath = "..\\reports"
+            data = datetime.datetime.now().strftime("%d_%m_%Y %H_%M_%S")
+            tasksReportName = data + "_reportTasks.pdf"
+            pdfPath = os.path.join(rootPath, tasksReportName)
+            reportCanvas = canvas.Canvas(pdfPath)
+            records = Connection.getTasks()
+            items = ["TASK ID", "CLIENT", "EMPLOYEE", "€/H", "HOURS", "SERVICE", "STATUS"]
+            reportCanvas.setFont("Helvetica-Bold", 9)
+            reportCanvas.drawCentredString(42, 650, str(items[0]))
+            reportCanvas.drawCentredString(120, 650, str(items[1]))
+            reportCanvas.drawCentredString(220, 650, str(items[2]))
+            reportCanvas.drawCentredString(305, 650, str(items[3]))
+            reportCanvas.drawCentredString(360, 650, str(items[4]))
+            reportCanvas.drawCentredString(450, 650, str(items[5]))
+            reportCanvas.drawCentredString(553, 650, str(items[6]))
+            reportCanvas.line(15, 645, 580, 645)
+            reportCanvas.line(15, 663, 580, 663)
+            y = 630
+
+            Reports.reportHeader(reportCanvas, "Listado de tareas")
+            Reports.reportFooter(reportCanvas, "Listado de tareas")
+
+            for record in records:
+                if y <= 90:
+                    reportCanvas.setFont("Helvetica-Oblique", 6)
+                    reportCanvas.drawString(450, 75, "Página siguiente...")
+                    reportCanvas.showPage()  # crea una nueva página
+                    reportCanvas.drawCentredString(42, 800, str(items[0]))
+                    reportCanvas.drawCentredString(120, 800, str(items[1]))
+                    reportCanvas.drawCentredString(220, 800, str(items[2]))
+                    reportCanvas.drawCentredString(305, 800, str(items[3]))
+                    reportCanvas.drawCentredString(360, 800, str(items[4]))
+                    reportCanvas.drawCentredString(450, 800, str(items[5]))
+                    reportCanvas.drawCentredString(553, 800, str(items[6]))
+                    reportCanvas.line(35, 645, 525, 645)
+                    y = 780
+
+                reportCanvas.setFont("Helvetica", 8)
+                reportCanvas.drawCentredString(42, y, str(record[0]))
+                reportCanvas.drawString(85, y, str(record[1]))
+                reportCanvas.drawString(180, y, str(record[2]))
+                reportCanvas.drawCentredString(305, y, str(record[4]))
+                reportCanvas.drawCentredString(360, y, str(record[5]))
+                reportCanvas.drawString(405, y, str(record[3]))
+                reportCanvas.drawString(535, y, str(record[6]))
+                y -= 20
+
+            reportCanvas.save()
+
+            for file in os.listdir(rootPath):
+                if file.endswith(tasksReportName):
+                    os.startfile(pdfPath)
+
+        except Exception as error:
+            print("(Reports.tasksReport) an error occurred while trying to make the tasks report: )")

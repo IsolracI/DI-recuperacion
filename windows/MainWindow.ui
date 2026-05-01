@@ -1380,6 +1380,7 @@
      <string>Reports</string>
     </property>
     <addaction name="actionUsers_Report"/>
+    <addaction name="actionTasks_Report"/>
    </widget>
    <addaction name="menuFiles"/>
    <addaction name="menuReports"/>
@@ -1389,6 +1390,11 @@
   <action name="actionUsers_Report">
    <property name="text">
     <string>Users Report</string>
+   </property>
+  </action>
+  <action name="actionTasks_Report">
+   <property name="text">
+    <string>Tasks Report</string>
    </property>
   </action>
  </widget>
