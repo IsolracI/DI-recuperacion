@@ -14,8 +14,6 @@ class Connection:
         :rtype: bool
 
         """
-
-
         dbURL = "../bbdd/bbdd.sqlite"
 
         if not os.path.isfile(dbURL):
@@ -53,6 +51,16 @@ class Connection:
 
     @staticmethod
     def getUsers(type="All"):
+        """
+
+        Obtiene los usuarios almacenados en la base de datos.
+
+        :param type: Tipo de usuario que se desea obtener
+        :type type: str
+        :return: Lista con los datos de los usuarios encontrados
+        :rtype: list
+
+        """
         try:
             usersList = []
             query = QtSql.QSqlQuery()
@@ -80,6 +88,14 @@ class Connection:
 
     @staticmethod
     def getUsersOrderByName():
+        """
+
+        Obtiene todos los usuarios ordenados alfabéticamente por nombre.
+
+        :return: Lista con los usuarios ordenados por nombre
+        :rtype: list
+
+        """
         try:
             usersList = []
             query = QtSql.QSqlQuery()
@@ -100,6 +116,15 @@ class Connection:
 
     @staticmethod
     def getClientsName():
+        """
+
+        Obtiene los nombres de todos los usuarios registrados
+        como clientes.
+
+        :return: Lista con los nombres de los clientes
+        :rtype: list
+
+        """
         try:
             clientsList = []
             query = QtSql.QSqlQuery()
@@ -119,6 +144,15 @@ class Connection:
 
     @staticmethod
     def getEmployeesName():
+        """
+
+        Obtiene los nombres de todos los usuarios registrados
+        como empleados.
+
+        :return: Lista con los nombres de los empleados
+        :rtype: list
+
+        """
         try:
             employeesList = []
             query = QtSql.QSqlQuery()
@@ -138,6 +172,17 @@ class Connection:
 
     @staticmethod
     def getUserInfo(email):
+        """
+
+        Obtiene toda la información de un usuario a partir de su
+        correo electrónico.
+
+        :param email: Correo electrónico del usuario
+        :type email: str
+        :return: Lista con la información del usuario
+        :rtype: list
+
+        """
         try:
             userData = []
             query = QtSql.QSqlQuery()
@@ -159,6 +204,17 @@ class Connection:
 
     @staticmethod
     def insertUser(data):
+        """
+
+        Inserta un nuevo usuario en la base de datos utilizando
+        los datos proporcionados desde la interfaz gráfica.
+
+        :param data: Lista con los datos del usuario
+        :type data: list
+        :return: True si el usuario se insertó correctamente, False en caso contrario
+        :rtype: bool
+
+        """
         try:
             query = QtSql.QSqlQuery()
             query.prepare("INSERT INTO Users "
@@ -190,6 +246,18 @@ class Connection:
 
     @staticmethod
     def updateUser(data):
+        """
+
+        Actualiza la información de un usuario existente utilizando
+        los nuevos datos proporcionados desde la interfaz gráfica y
+        el DNI como identificador principal.
+
+        :param data: Lista con los nuevos datos del usuario
+        :type data: list
+        :return: True si la actualización fue correcta, False en caso contrario
+        :rtype: bool
+
+        """
         try:
             query = QtSql.QSqlQuery()
             query.prepare("UPDATE Users set "
@@ -221,6 +289,17 @@ class Connection:
 
     @staticmethod
     def deleteUser(dni):
+        """
+
+        Elimina de la base de datos el usuario cuyo DNI sea
+        igual al DNI proporcionado.
+
+        :param dni: DNI del usuario que se desea eliminar
+        :type dni: str
+        :return: True si el usuario se eliminó correctamente, False en caso contrario
+        :rtype: bool
+
+        """
         try:
             query = QtSql.QSqlQuery()
             query.prepare("DELETE FROM Users "
@@ -242,6 +321,14 @@ class Connection:
 
     @staticmethod
     def getTasks():
+        """
+
+        Obtiene todas las tareas almacenadas en la base de datos.
+
+        :return: Lista con todas las tareas registradas
+        :rtype: list
+
+        """
         try:
             tasksList = []
             query = QtSql.QSqlQuery()
@@ -261,6 +348,16 @@ class Connection:
 
     @staticmethod
     def getEmployeeTasks(employee):
+        """
+
+        Obtiene las tareas asignadas a un empleado específico.
+
+        :param employee: Nombre del empleado
+        :type employee: str
+        :return: Lista con las tareas del empleado
+        :rtype: list
+
+        """
         try:
             tasksList = []
             query = QtSql.QSqlQuery()
@@ -282,6 +379,16 @@ class Connection:
 
     @staticmethod
     def getClientTasks(client):
+        """
+
+        Obtiene las tareas asociadas a un cliente específico.
+
+        :param client: Nombre del cliente
+        :type client: str
+        :return: Lista con las tareas del cliente
+        :rtype: list
+
+        """
         try:
             tasksList = []
             query = QtSql.QSqlQuery()
@@ -303,6 +410,16 @@ class Connection:
 
     @staticmethod
     def getTaskInfo(taskId):
+        """
+
+        Obtiene toda la información de una tarea concreta.
+
+        :param taskId: Identificador de la tarea
+        :type taskId: int
+        :return: Lista con la información de la tarea
+        :rtype: list
+
+        """
         try:
             taskInfo = []
             query = QtSql.QSqlQuery()
@@ -323,6 +440,17 @@ class Connection:
 
     @staticmethod
     def insertTask(data):
+        """
+
+        Inserta una nueva tarea en la base de datos utilizando
+        los datos proporcionados desde la interfaz gráfica.
+
+        :param data: Lista con los datos de la tarea
+        :type data: list
+        :return: True si la tarea se insertó correctamente, False en caso contrario
+        :rtype: bool
+
+        """
         try:
             query = QtSql.QSqlQuery()
             query.prepare("INSERT INTO Tasks "
@@ -353,6 +481,18 @@ class Connection:
 
     @staticmethod
     def updateTask(data):
+        """
+
+        Actualiza la información de una tarea existente utilizando
+        los nuevos datos proporcionados desde la interfaz gráfica y
+        el ID de la tarea como identificador principal.
+
+        :param data: Lista con los nuevos datos de la tarea
+        :type data: list
+        :return: True si la actualización fue correcta, False en caso contrario
+        :rtype: bool
+
+        """
         try:
             query = QtSql.QSqlQuery()
             query.prepare("UPDATE Tasks set "
@@ -383,6 +523,17 @@ class Connection:
 
     @staticmethod
     def deleteTask(taskId):
+        """
+
+        Elimina de la base de datos la tarea cuyo ID sea
+        igual al ID proporcionado.
+
+        :param taskId: Identificador de la tarea que se desea eliminar
+        :type taskId: int
+        :return: True si la tarea se eliminó correctamente, False en caso contrario
+        :rtype: bool
+
+        """
         try:
             query = QtSql.QSqlQuery()
             query.prepare("DELETE FROM Tasks"
