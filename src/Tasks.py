@@ -7,6 +7,13 @@ class Tasks:
 
     @staticmethod
     def loadTasksAssets():
+        """
+
+        Carga los recursos gráficos utilizados en la pestaña de tareas.
+
+        :return: None
+
+        """
         try:
             employeeIcon = QtGui.QPixmap("../assets/employee_icon.png")
             ClientIcon = QtGui.QPixmap("../assets/client_icon.png")
@@ -22,12 +29,29 @@ class Tasks:
 
     @staticmethod
     def loadStatusOptions():
+        """
+
+        Carga las opciones de estado disponibles en el ComboBox de estado de tareas.
+
+        :return: None
+
+        """
         statusOptions = ["  -- selecciona --", "Pendiente", "En curso", "Finalizada", "Facturada"]
         Globals.ui.cmb_taskStatus.addItems(statusOptions)
 
 
     @staticmethod
     def checkEmployee():
+        """
+
+        Verifica si el empleado introducido existe en la base de datos.
+
+        Si el nombre no existe, el campo se marca en rojo y se limpia.
+        Si existe, el campo se marca en color válido.
+
+        :return: None
+
+        """
         existingEmployees = Connection.getEmployeesName()
         employee = Globals.ui.txt_employeeName.text().strip()
 
@@ -41,6 +65,16 @@ class Tasks:
 
     @staticmethod
     def checkClient():
+        """
+
+        Verifica si el cliente introducido existe en la base de datos.
+
+        Si el nombre no existe, el campo se marca en rojo y se limpia.
+        Si existe, el campo se marca en color válido.
+
+        :return: None
+
+        """
         existingClients = Connection.getClientsName()
         client = Globals.ui.txt_clientName.text().strip()
 
@@ -54,6 +88,17 @@ class Tasks:
 
     @staticmethod
     def checkPrice():
+        """
+
+        Valida el formato del precio introducido en el campo
+        de precio por hora.
+
+        Cambia el color del campo dependiendo de si el valor
+        introducido es válido o no.
+
+        :return: None
+
+        """
         try:
             pattern = r'^\d+([.,]\d{1,2})?$'
             price = Globals.ui.txt_taskPrice.text().strip()
@@ -71,6 +116,16 @@ class Tasks:
 
     @staticmethod
     def checkService():
+        """
+
+        Verifica que el campo de servicio no esté vacío.
+
+        Cambia el color del campo dependiendo de si el valor
+        introducido es válido o no.
+
+        :return: None
+
+        """
         try:
             service = Globals.ui.txt_taskService.text().strip()
 
@@ -87,6 +142,16 @@ class Tasks:
 
     @staticmethod
     def checkTasksHours():
+        """
+
+        Verifica que el número de horas introducido sea un valor válido.
+
+        Cambia el color del campo dependiendo de si el valor
+        introducido es válido o no.
+
+        :return: None
+
+        """
         try:
             hours = Globals.ui.txt_taskHours.text().strip()
 
@@ -111,6 +176,15 @@ class Tasks:
 
     @staticmethod
     def _checkFields():
+        """
+
+        Comprueba que todos los campos obligatorios de la tarea
+        contengan información.
+
+        :return: True si todos los campos contienen datos, False en caso contrario.
+        :rtype: bool
+
+        """
         try:
             fields = [Globals.ui.txt_taskID.text(),
                       Globals.ui.txt_clientName.text(),
@@ -130,6 +204,16 @@ class Tasks:
 
     @staticmethod
     def _loadTasksTable(tasks):
+        """
+
+        Carga una lista de tareas en la tabla de tareas
+        de la interfaz.
+
+        :param tasks: Lista de tareas obtenidas desde la base de datos.
+        :type tasks: list
+        :return: None
+
+        """
         try:
             index = 0
             uiTable = Globals.ui.tbl_tasks
@@ -159,6 +243,14 @@ class Tasks:
 
     @staticmethod
     def loadAllTasks():
+        """
+
+        Carga todas las tareas almacenadas en la base de datos
+        y las muestra en la tabla de tareas.
+
+        :return: None
+
+        """
         try:
             tasks = Connection.getTasks()
             Tasks._loadTasksTable(tasks)
@@ -169,6 +261,17 @@ class Tasks:
 
     @staticmethod
     def loadEmployeesTasks():
+        """
+
+        Carga en la tabla las tareas asociadas
+        al empleado introducido.
+
+        Si el campo del empleado está vacío, se muestra
+        un mensaje de error.
+
+        :return: None
+
+        """
         try:
             employee = Globals.ui.txt_employeeName.text()
 
@@ -189,6 +292,17 @@ class Tasks:
 
     @staticmethod
     def loadClientTasks():
+        """
+
+        Carga en la tabla las tareas asociadas
+        al cliente introducido.
+
+        Si el campo del cliente está vacío, se muestra
+        un mensaje de error.
+
+        :return: None
+
+        """
         try:
             client = Globals.ui.txt_clientName.text()
 
@@ -209,6 +323,13 @@ class Tasks:
 
     @staticmethod
     def loadTaskInfo():
+        """
+
+        Carga en el formulario la información de la tarea seleccionada en la tabla.
+
+        :return: None
+
+        """
         try:
             selectedRow = Globals.ui.tbl_tasks.currentRow()
             taskId = Globals.ui.tbl_tasks.item(selectedRow, 0).text()
@@ -238,6 +359,19 @@ class Tasks:
 
     @staticmethod
     def saveTask():
+        """
+
+        Guarda una nueva tarea en la base de datos utilizando
+        la información introducida en el formulario.
+
+        Comprueba que todos los campos estén completos y que
+        el estado de la tarea sea válido antes de guardar.
+
+        Actualiza la tabla tras terminar.
+
+        :return: None
+
+        """
         try:
             fieldsData = [Globals.ui.txt_clientName.text(),
                           Globals.ui.txt_employeeName.text(),
@@ -282,6 +416,20 @@ class Tasks:
 
     @staticmethod
     def modifyTask():
+        """
+
+        Modifica la información de la tarea seleccionada
+        en la base de datos.
+
+        Comprueba que todos los campos estén completos y
+        valida el estado de la tarea antes de realizar la
+        modificación.
+
+        Actualiza la tabla tras terminar.
+
+        :return: None
+
+        """
         try:
             fieldsData = [Globals.ui.txt_taskID,
                           Globals.ui.txt_clientName,
@@ -332,6 +480,15 @@ class Tasks:
 
     @staticmethod
     def deleteTask():
+        """
+
+        Elimina la tarea seleccionada de la base de datos.
+
+        Actualiza la tabla tras terminar.
+
+        :return: None
+
+        """
         try:
             taskId = Globals.ui.txt_taskID.text()
 
@@ -376,6 +533,14 @@ class Tasks:
 
     @staticmethod
     def clearTasksFields():
+        """
+
+        Limpia todos los campos del formulario de tareas
+        y restablece sus valores y estilos por defecto.
+
+        :return: None
+
+        """
         try:
             fields = [Globals.ui.txt_taskID,
                       Globals.ui.txt_clientName,
