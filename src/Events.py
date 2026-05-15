@@ -1,7 +1,5 @@
 from PyQt6 import QtWidgets
-
 from src import Globals
-
 
 class Events:
 
@@ -9,8 +7,11 @@ class Events:
     def resizeTable(table):
         """
 
-        Ajusta automáticamente el tamaño de las columnas de la tabla de clientes.
+        Ajusta automáticamente el tamaño de las columnas y aplica formato
+        en negrita a los encabezados de la tabla especificada.
 
+        :param table: Tabla de la interfaz que se desea redimensionar
+        :type table: QtWidgets.QTableWidget
         :return: None
 
         """
