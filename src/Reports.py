@@ -8,6 +8,17 @@ class Reports:
 
     @staticmethod
     def reportHeader(reportCanvas, title):
+        """
+
+        Dibuja la cabecera del informe PDF.
+
+        :param reportCanvas: Lienzo del PDF sobre el que se dibuja el contenido
+        :type reportCanvas: reportlab.pdfgen.canvas.Canvas
+        :param title: Título del informe que aparecerá en la cabecera
+        :type title: str
+        :return: None
+
+        """
         try:
             path_logo = "..\\assets\\amiyapog.png"
             logo = Image.open(path_logo)
@@ -29,7 +40,7 @@ class Reports:
                 print('No se pudo cargar el logo')
 
         except Exception as e:
-            print("(Reports.header) an error occurred while trying to make the header", e)
+            print("(Reports.reportHeader) an error occurred while trying to make the header", e)
 
     @staticmethod
     def reportFooter(reportCanvas, title):
@@ -55,14 +66,14 @@ class Reports:
             reportCanvas.drawString(440, 47, str("Página: " + str(reportCanvas.getPageNumber())))
 
         except Exception as error:
-            print("(Reports.footer) an error occurred while trying to make the footer: ", error)
+            print("(Reports.reportFooter) an error occurred while trying to make the footer: ", error)
 
 
     @staticmethod
     def usersReport():
         """
 
-        Genera un informe en PDF con la lista de usuarios.
+        Genera un informe PDF con el listado de usuarios registrados.
 
         :return: None
 
@@ -118,6 +129,13 @@ class Reports:
 
     @staticmethod
     def tasksReport():
+        """
+
+        Genera un informe PDF con el listado de tareas.
+
+        :return: None
+
+        """
         try:
             rootPath = "..\\reports"
             data = datetime.datetime.now().strftime("%d_%m_%Y %H_%M_%S")
