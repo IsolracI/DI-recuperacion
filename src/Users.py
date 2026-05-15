@@ -13,6 +13,9 @@ class Users:
 
         Valida el DNI o NIE introducido por el usuario.
 
+        Cambia el color del campo dependiendo de si el valor
+        introducido es válido o no.
+
         :return: None
 
         """
@@ -57,7 +60,10 @@ class Users:
     def checkMail(email):
         """
 
-        Valida el formato del correo electrónico.
+        Valida el formato del correo electrónico introducido por el usuario.
+
+        Cambia el color del campo dependiendo de si el valor
+        introducido es válido o no.
 
         :param email: Dirección de correo electrónico introducido por el usuario
         :type email: str
@@ -82,7 +88,10 @@ class Users:
     def checkMobile(number):
         """
 
-        Valida el número de teléfono móvil del cliente.
+        Valida el número de teléfono móvil introducido por el usuario.
+
+        Cambia el color del campo dependiendo de si el valor
+        introducido es válido o no.
 
         :param number: Número de teléfono introducido.
         :type number: str
@@ -102,6 +111,16 @@ class Users:
 
     @staticmethod
     def checkName():
+        """
+
+        Verifica que el campo del nombre del usuario no esté vacío.
+
+        Cambia el color del campo dependiendo de si el valor
+        introducido es válido o no.
+
+        :return: None
+
+        """
         if not Globals.ui.txt_userName.text():
             Globals.ui.txt_userName.setStyleSheet("background-color: #FFC0CB; color black")
         else:
@@ -110,6 +129,16 @@ class Users:
 
     @staticmethod
     def checkAddress():
+        """
+
+        Verifica que el campo de dirección no esté vacío.
+
+        Cambia el color del campo dependiendo de si el valor
+        introducido es válido o no.
+
+        :return: None
+
+        """
         if not Globals.ui.txt_userAddress.text():
             Globals.ui.txt_userAddress.setStyleSheet("background-color: #FFC0CB; color black")
         else:
@@ -118,6 +147,15 @@ class Users:
 
     @staticmethod
     def _checkFields():
+        """
+
+        Comprueba que todos los campos del formulario
+        de usuario estén cubiertos.
+
+        :return: True si todos los campos contienen datos, False en caso contrario.
+        :rtype: bool
+
+        """
         try:
             fields = [Globals.ui.txt_userDNI.text(),
                       Globals.ui.txt_userName.text(),
@@ -136,6 +174,13 @@ class Users:
 
     @staticmethod
     def loadUsersTable():
+        """
+
+        Carga los usuarios de la base de datos en la tabla de usuarios.
+
+        :return: None
+
+        """
         try:
             users = Connection.getUsers(Users.show)
 
@@ -164,6 +209,13 @@ class Users:
 
     @staticmethod
     def showAll():
+        """
+
+        Cambia la variable 'show' para mostrar todos los usuarios en la tabla de usuarios.
+
+        :return: None
+
+        """
         try:
             Users.show = "All"
             Users.loadUsersTable()
@@ -173,6 +225,13 @@ class Users:
 
     @staticmethod
     def showEmployees():
+        """
+
+        Cambia la variable 'show' para mostrar solo los usuarios que son empleados en la tabla de usuarios.
+
+        :return: None
+
+        """
         try:
             Users.show = "Employee"
             Users.loadUsersTable()
@@ -182,6 +241,13 @@ class Users:
 
     @staticmethod
     def showClients():
+        """
+
+        Cambia la variable 'show' para mostrar solo los usuarios que son clientes en la tabla de usuarios.
+
+        :return: None
+
+        """
         try:
             Users.show = "Client"
             Users.loadUsersTable()
@@ -191,6 +257,13 @@ class Users:
 
     @staticmethod
     def loadUserInfo():
+        """
+
+        Carga en el formulario la información del usuario seleccionado en la tabla.
+
+        :return: None
+
+        """
         try:
             selectedRow = Globals.ui.tbl_users.currentRow()
             userEmail = Globals.ui.tbl_users.item(selectedRow, 3).text()
@@ -227,6 +300,19 @@ class Users:
 
     @staticmethod
     def saveUser():
+        """
+
+        Guarda un nuevo usuario en la base de datos utilizando
+        la información introducida en el formulario.
+
+        Comprueba que todos los campos estén completos
+        antes de guardar.
+
+        Actualiza la tabla tras terminar.
+
+        :return: None
+
+        """
         try:
             fieldsData = [Globals.ui.txt_userDNI,
                           Globals.ui.txt_userName,
@@ -271,6 +357,19 @@ class Users:
 
     @staticmethod
     def modifyUser():
+        """
+
+        Modifica la información del usuario seleccionado
+        en la base de datos.
+
+        Comprueba que todos los campos estén completos
+        antes de modificar.
+
+        Actualiza la tabla tras terminar.
+
+        :return: None
+
+        """
         try:
             fieldsData = [Globals.ui.txt_userDNI,
                           Globals.ui.txt_userName,
@@ -318,6 +417,15 @@ class Users:
 
     @staticmethod
     def deleteUser():
+        """
+
+        Elimina el usuario seleccionado de la base de datos.
+
+        Actualiza la tabla tras terminar.
+
+        :return: None
+
+        """
         try:
             dni = Globals.ui.txt_userDNI.text()
 
@@ -362,6 +470,14 @@ class Users:
 
     @staticmethod
     def clearUsersFields():
+        """
+
+        Limpia todos los campos del formulario de tareas
+        y restablece sus valores y estilos por defecto.
+
+        :return: None
+
+        """
         try:
             fieldsData = [Globals.ui.txt_userDNI,
                           Globals.ui.txt_userName,
