@@ -36,7 +36,7 @@ class Tasks:
         :return: None
 
         """
-        statusOptions = ["  -- selecciona --", "Pendiente", "En curso", "Finalizada", "Facturada"]
+        statusOptions = ["  -- Select status --", "Pending", "In progress", "Finished", "Invoiced"]
         Globals.ui.cmb_taskStatus.addItems(statusOptions)
 
 
@@ -404,6 +404,7 @@ class Tasks:
                 mbox.setText("The task has been added successfully.")
                 mbox.exec()
                 Tasks.loadAllTasks()
+                Tasks.clearTasksFields()
             else:
                 mbox = QtWidgets.QMessageBox()
                 mbox.setWindowTitle("Error")
@@ -516,6 +517,7 @@ class Tasks:
                     successMbox.setText("The task has been deleted successfully.")
                     successMbox.exec()
                     Tasks.loadAllTasks()
+                    Tasks.clearTasksFields()
                     return
 
                 mbox = QtWidgets.QMessageBox()

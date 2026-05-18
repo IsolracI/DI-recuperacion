@@ -341,6 +341,7 @@ class Users:
                 mbox.setText("The user has been added successfully.")
                 mbox.exec()
                 Users.loadUsersTable()
+                Users.clearUsersFields()
             else:
                 mbox = QtWidgets.QMessageBox()
                 mbox.setWindowTitle("Error")
@@ -451,6 +452,7 @@ class Users:
                     successMbox.setText("The user has been deleted successfully.")
                     successMbox.exec()
                     Users.loadUsersTable()
+                    Users.clearUsersFields()
                     return
 
                 mbox = QtWidgets.QMessageBox()
