@@ -207,7 +207,7 @@ class Users:
                         font = item.font()
                         font.setBold(True)
                         item.setFont(font)
-                        item.setBackground(QtGui.QColor(240, 240, 240))
+                        item.setBackground(QtGui.QColor(250, 245, 245))
 
                 index += 1
 
