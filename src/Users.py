@@ -200,6 +200,15 @@ class Users:
                 uiTable.item(index, 2).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter | QtCore.Qt.AlignmentFlag.AlignVCenter)
                 uiTable.item(index, 3).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter | QtCore.Qt.AlignmentFlag.AlignVCenter)
                 uiTable.item(index, 4).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter | QtCore.Qt.AlignmentFlag.AlignVCenter)
+
+                if user[5] == "Employee":
+                    for col in range(uiTable.columnCount()):
+                        item = (uiTable.item(index, col))
+                        font = item.font()
+                        font.setBold(True)
+                        item.setFont(font)
+                        item.setBackground(QtGui.QColor(240, 240, 240))
+
                 index += 1
 
         except Exception as error:
