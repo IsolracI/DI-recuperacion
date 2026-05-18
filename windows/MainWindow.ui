@@ -36,7 +36,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="UsersTab">
        <attribute name="title">
@@ -1351,6 +1351,11 @@
          </size>
         </property>
        </widget>
+      </widget>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>Examen</string>
+       </attribute>
       </widget>
      </widget>
     </item>

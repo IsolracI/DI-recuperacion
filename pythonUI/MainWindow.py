@@ -518,6 +518,9 @@ class Ui_MainWindow(object):
         self.btn_searchClient.setIconSize(QtCore.QSize(24, 24))
         self.btn_searchClient.setObjectName("btn_searchClient")
         self.tabWidget.addTab(self.tasksTab, "")
+        self.tab = QtWidgets.QWidget()
+        self.tab.setObjectName("tab")
+        self.tabWidget.addTab(self.tab, "")
         self.horizontalLayout.addWidget(self.tabWidget)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
@@ -544,7 +547,7 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuAbout.menuAction())
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -614,6 +617,7 @@ class Ui_MainWindow(object):
         self.lbl_taskID.setText(_translate("MainWindow", " ID"))
         self.txt_taskID.setPlaceholderText(_translate("MainWindow", "Task Id"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tasksTab), _translate("MainWindow", "Tasks"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Examen"))
         self.menuFiles.setTitle(_translate("MainWindow", "Files"))
         self.menuAbout.setTitle(_translate("MainWindow", "About"))
         self.menuReports.setTitle(_translate("MainWindow", "Reports"))
