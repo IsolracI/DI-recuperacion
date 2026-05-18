@@ -87,7 +87,7 @@ class Connection:
 
 
     @staticmethod
-    def getUsersOrderByName():
+    def getUsersOrderByName(type="All"):
         """
 
         Obtiene todos los usuarios ordenados alfabéticamente por nombre.
@@ -99,9 +99,18 @@ class Connection:
         try:
             usersList = []
             query = QtSql.QSqlQuery()
-            query.prepare("SELECT  *"
-                          "    FROM Users"
-                          "    ORDER BY Name")
+
+            if type == "Client" or type == "Employee":
+                query.prepare("SELECT  *"
+                              "    FROM Users"
+                              "    WHERE User_Type = :type"
+                              "    ORDER BY Name")
+                query.bindValue(":type", type)
+
+            else:
+                query.prepare("SELECT  *"
+                              "    FROM Users"
+                              "    ORDER BY Name")
 
             if query.exec():
                 while query.next():

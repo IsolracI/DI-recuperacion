@@ -79,12 +79,22 @@ class Reports:
 
         """
         try:
+            option, ok = QtWidgets.QInputDialog.getItem(None,
+                                                        "Users report",
+                                                        "Select the type of users for the report",
+                                                        ["All", "Client", "Employee"],
+                                                        0,
+                                                        False)
+
+            if not ok:
+                return
+
             rootPath = "..\\reports"
             data = datetime.datetime.now().strftime("%d_%m_%Y %H_%M_%S")
             usersReportName = data + "_reportUsers.pdf"
             pdfPath = os.path.join(rootPath, usersReportName)
             reportCanvas = canvas.Canvas(pdfPath)
-            records = Connection.getUsersOrderByName()
+            records = Connection.getUsersOrderByName(option)
             items = ["NAME", "PHONE", "EMAIL", "TYPE"]
             reportCanvas.setFont("Helvetica-Bold", 10)
             reportCanvas.drawCentredString(100, 650, str(items[0]))
@@ -95,8 +105,8 @@ class Reports:
             reportCanvas.line(35, 663, 525, 663)
             y = 630
 
-            Reports.reportHeader(reportCanvas, "Listado de empleados")
-            Reports.reportFooter(reportCanvas, "Listado de empleados")
+            Reports.reportHeader(reportCanvas, "Listado de usuarios")
+            Reports.reportFooter(reportCanvas, "Listado de usuarios")
 
             for record in records:
                 if y <= 90:
