@@ -36,7 +36,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="UsersTab">
        <attribute name="title">
@@ -99,7 +99,7 @@
          <string/>
         </property>
         <property name="placeholderText">
-         <string>Enter your DNI</string>
+         <string>Enter the user's DNI</string>
         </property>
        </widget>
        <widget class="QLabel" name="lbl_userName">
@@ -140,7 +140,7 @@
          <string/>
         </property>
         <property name="placeholderText">
-         <string>Enter your name</string>
+         <string>Enter the user's name</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="txt_userAddress">
@@ -161,7 +161,7 @@
          <string/>
         </property>
         <property name="placeholderText">
-         <string>Enter your address</string>
+         <string>Enter the user's address</string>
         </property>
        </widget>
        <widget class="QLabel" name="lbl_userAddress">
@@ -202,7 +202,7 @@
          <string/>
         </property>
         <property name="placeholderText">
-         <string>Enter your e-mail</string>
+         <string>Enter the user's e-mail</string>
         </property>
        </widget>
        <widget class="QLabel" name="lbl_userEmail">
@@ -243,7 +243,7 @@
          <string/>
         </property>
         <property name="placeholderText">
-         <string>Enter your number</string>
+         <string>Enter the user's number</string>
         </property>
        </widget>
        <widget class="QLabel" name="lbl_userMobile">

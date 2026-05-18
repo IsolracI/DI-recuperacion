@@ -494,9 +494,9 @@ class Users:
 
             Globals.ui.userPortrait.clear()
 
-            Globals.ui.txt_userDNI.setPlaceholderText("Enter your DNI")
-            Globals.ui.txt_userEmail.setPlaceholderText("Enter your e-mail")
-            Globals.ui.txt_userMobile.setPlaceholderText("Enter your number")
+            Globals.ui.txt_userDNI.setPlaceholderText("Enter the user's DNI")
+            Globals.ui.txt_userEmail.setPlaceholderText("Enter the user's e-mail")
+            Globals.ui.txt_userMobile.setPlaceholderText("Enter the user's number")
 
             for radioButton in radioButtons:
                 radioButton.setAutoExclusive(False)
