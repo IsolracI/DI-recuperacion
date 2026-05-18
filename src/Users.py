@@ -3,7 +3,6 @@ from src.Connection import Connection
 from src import Globals
 import re
 
-
 class Users:
     show = "All"
 

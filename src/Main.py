@@ -1,6 +1,4 @@
 from pythonUI.MainWindow import Ui_MainWindow
-from src.Connection import *
-from PyQt6 import QtWidgets
 from styles import Styles
 from src.Reports import *
 from src.Events import *

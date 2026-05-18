@@ -1,4 +1,4 @@
-from PyQt6 import QtWidgets, QtCore, QtGui
+from PyQt6 import QtCore, QtGui
 from src.Connection import *
 from src import Globals
 import re
