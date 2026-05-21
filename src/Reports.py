@@ -20,7 +20,7 @@ class Reports:
 
         """
         try:
-            path_logo = "..\\assets\\amiyapog.png"
+            path_logo = "assets\\amiyapog.png"
             logo = Image.open(path_logo)
             if isinstance(logo, Image.Image):
                 reportCanvas.setFont('Helvetica-Bold', 10)
@@ -89,7 +89,7 @@ class Reports:
             if not ok:
                 return
 
-            rootPath = "..\\reports"
+            rootPath = "reports"
             data = datetime.datetime.now().strftime("%d_%m_%Y %H_%M_%S")
             usersReportName = data + "_reportUsers.pdf"
             pdfPath = os.path.join(rootPath, usersReportName)
@@ -147,7 +147,7 @@ class Reports:
 
         """
         try:
-            rootPath = "..\\reports"
+            rootPath = "reports"
             data = datetime.datetime.now().strftime("%d_%m_%Y %H_%M_%S")
             tasksReportName = data + "_reportTasks.pdf"
             pdfPath = os.path.join(rootPath, tasksReportName)

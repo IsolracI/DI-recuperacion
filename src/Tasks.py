@@ -15,9 +15,9 @@ class Tasks:
 
         """
         try:
-            employeeIcon = QtGui.QPixmap("../assets/employee_icon.png")
-            ClientIcon = QtGui.QPixmap("../assets/client_icon.png")
-            lensIcon = QtGui.QIcon("../assets/lens_icon.png")
+            employeeIcon = QtGui.QPixmap("assets/employee_icon.png")
+            ClientIcon = QtGui.QPixmap("assets/client_icon.png")
+            lensIcon = QtGui.QIcon("assets/lens_icon.png")
 
             Globals.ui.employeePortrait.setPixmap(employeeIcon)
             Globals.ui.clientPortrait.setPixmap(ClientIcon)

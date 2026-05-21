@@ -275,8 +275,8 @@ class Users:
         try:
             selectedRow = Globals.ui.tbl_users.currentRow()
             userEmail = Globals.ui.tbl_users.item(selectedRow, 3).text()
-            employeeIcon = QtGui.QPixmap("../assets/employee_icon.png")
-            ClientIcon = QtGui.QPixmap("../assets/client_icon.png")
+            employeeIcon = QtGui.QPixmap("assets/employee_icon.png")
+            ClientIcon = QtGui.QPixmap("assets/client_icon.png")
 
             userData = Connection.getUserInfo(userEmail)
 

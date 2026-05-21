@@ -14,7 +14,7 @@ class Connection:
         :rtype: bool
 
         """
-        dbURL = "../bbdd/bbdd.sqlite"
+        dbURL = "bbdd/bbdd.sqlite"
 
         if not os.path.isfile(dbURL):
             QtWidgets.QMessageBox.critical(None, "Error", "The database file does not exist.",
