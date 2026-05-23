@@ -124,6 +124,38 @@ class Connection:
 
 
     @staticmethod
+    def getUsersPage(limit, offset, userType="All"):
+        try:
+            usersList = []
+            query = QtSql.QSqlQuery()
+
+            if userType in ["Client", "Employee"]:
+                query.prepare("SELECT  *"
+                              "    FROM Users"
+                              "    WHERE User_Type = :type"
+                              "    LIMIT :limit OFFSET :offset")
+                query.bindValue(":type", userType)
+
+            else:
+                query.prepare("SELECT  *"
+                              "    FROM Users"
+                              "    LIMIT :limit OFFSET :offset")
+
+            query.bindValue(":limit", limit)
+            query.bindValue(":offset", offset)
+
+            if query.exec():
+                while query.next():
+                    row = [query.value(i) for i in range(query.record().count())]
+                    usersList.append(row)
+
+            return usersList
+
+        except Exception as error:
+            print(error)
+
+
+    @staticmethod
     def getClientsName():
         """
 

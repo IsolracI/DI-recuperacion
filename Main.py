@@ -1,8 +1,9 @@
 from pythonUI.MainWindow import Ui_MainWindow
+from src.Users.UsersTable import *
+from src.Users.UsersForm import *
 from styles import Styles
 from src.Reports import *
 from src.Events import *
-from src.Users import *
 from src.Tasks import *
 from src import Globals
 import sys
@@ -31,26 +32,30 @@ class Main(QtWidgets.QMainWindow):
         ####   ##-## USERS ##-##   ####
                #################
 
+        UsersTable.setTableSettings()
+
         # Table
-        Users.loadUsersTable()
-        Globals.ui.btn_showEmployees.clicked.connect(Users.showEmployees)
-        Globals.ui.btn_showAll.clicked.connect(Users.showAll)
-        Globals.ui.btn_showClients.clicked.connect(Users.showClients)
-        Globals.ui.tbl_users.clicked.connect(Users.loadUserInfo)
+        UsersTable.loadUsersTable()
+        Globals.ui.btn_showEmployees.clicked.connect(UsersTable.showEmployees)
+        Globals.ui.btn_showAll.clicked.connect(UsersTable.showAll)
+        Globals.ui.btn_showClients.clicked.connect(UsersTable.showClients)
+        Globals.ui.tbl_users.clicked.connect(UsersForm.loadUserInfo)
         Events.resizeTable(Globals.ui.tbl_users)
 
         # Buttons
-        Globals.ui.btn_saveUser.clicked.connect(Users.saveUser)
-        Globals.ui.btn_modifyUser.clicked.connect(Users.modifyUser)
-        Globals.ui.btn_clearUser.clicked.connect(Users.clearUsersFields)
-        Globals.ui.btn_deleteUser.clicked.connect(Users.deleteUser)
+        Globals.ui.btn_saveUser.clicked.connect(UsersForm.saveUser)
+        Globals.ui.btn_modifyUser.clicked.connect(UsersForm.modifyUser)
+        Globals.ui.btn_clearUser.clicked.connect(UsersForm.clearUsersFields)
+        Globals.ui.btn_deleteUser.clicked.connect(UsersForm.deleteUser)
+        Globals.ui.btn_userTablePrevPage.clicked.connect(UsersTable.goToPreviousPage)
+        Globals.ui.btn_userTableNextPage.clicked.connect(UsersTable.goToNextPage)
 
         # Fields
-        Globals.ui.txt_userName.editingFinished.connect(Users.checkName)
-        Globals.ui.txt_userAddress.editingFinished.connect(Users.checkAddress)
-        Globals.ui.txt_userDNI.editingFinished.connect(Users.checkDni)
-        Globals.ui.txt_userEmail.editingFinished.connect(lambda: Users.checkMail(Globals.ui.txt_userEmail.text()))
-        Globals.ui.txt_userMobile.editingFinished.connect(lambda: Users.checkMobile(Globals.ui.txt_userMobile.text()))
+        Globals.ui.txt_userName.editingFinished.connect(UsersForm.checkName)
+        Globals.ui.txt_userAddress.editingFinished.connect(UsersForm.checkAddress)
+        Globals.ui.txt_userDNI.editingFinished.connect(UsersForm.checkDni)
+        Globals.ui.txt_userEmail.editingFinished.connect(lambda: UsersForm.checkMail(Globals.ui.txt_userEmail.text()))
+        Globals.ui.txt_userMobile.editingFinished.connect(lambda: UsersForm.checkMobile(Globals.ui.txt_userMobile.text()))
 
                #################
         ####   ##-## TASKS ##-##   ####

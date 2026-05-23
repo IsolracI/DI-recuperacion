@@ -36,7 +36,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="UsersTab">
        <attribute name="title">
@@ -291,8 +291,8 @@
          <rect>
           <x>10</x>
           <y>380</y>
-          <width>940</width>
-          <height>450</height>
+          <width>910</width>
+          <height>428</height>
          </rect>
         </property>
         <property name="font">
@@ -659,6 +659,49 @@
         </property>
         <property name="flat">
          <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_userTablePrevPage">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>920</x>
+          <y>380</y>
+          <width>30</width>
+          <height>214</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>25</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_userTableNextPage">
+        <property name="geometry">
+         <rect>
+          <x>920</x>
+          <y>594</y>
+          <width>30</width>
+          <height>214</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>25</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
       </widget>

@@ -1,10 +1,8 @@
-from PyQt6 import QtWidgets, QtCore, QtGui
-from src.Connection import Connection
+from src.Users.UsersTable import *
 from src import Globals
 import re
 
-class Users:
-    show = "All"
+class UsersForm:
 
     @staticmethod
     def checkDni():
@@ -49,10 +47,10 @@ class Users:
                 Globals.ui.txt_userDNI.setPlaceholderText("Invalid DNI")
 
         except Exception as error:
-            print("(Users.checkDni) There was an error while trying to check the dni: ", error)
+            print("(UsersForm.checkDni) There was an error while trying to check the dni: ", error)
 
         finally:
-            Globals.ui.txt_userDNI.editingFinished.connect(Users.checkDni)
+            Globals.ui.txt_userDNI.editingFinished.connect(UsersForm.checkDni)
 
 
     @staticmethod
@@ -81,7 +79,7 @@ class Users:
                 Globals.ui.txt_userEmail.setPlaceholderText("Invalid email")
 
         except Exception as error:
-            print("(Users.checkMail) There was an error while trying to check the email: ", error)
+            print("(UsersForm.checkMail) There was an error while trying to check the email: ", error)
 
     @staticmethod
     def checkMobile(number):
@@ -168,99 +166,7 @@ class Users:
                 return False
 
         except Exception as error:
-            print("(Users.checkFields) There was an error while trying to check the fields:", error)
-
-
-    @staticmethod
-    def loadUsersTable():
-        """
-
-        Carga los usuarios de la base de datos en la tabla de usuarios.
-
-        :return: None
-
-        """
-        try:
-            users = Connection.getUsers(Users.show)
-
-            index = 0
-            uiTable = Globals.ui.tbl_users
-            uiTable.clearContents()
-
-            for user in users:
-                uiTable.setRowCount(index + 1)
-                uiTable.setItem(index, 0, QtWidgets.QTableWidgetItem(str(user[1])))
-                uiTable.setItem(index, 1, QtWidgets.QTableWidgetItem(str(user[2])))
-                uiTable.setItem(index, 2, QtWidgets.QTableWidgetItem(str(user[3])))
-                uiTable.setItem(index, 3, QtWidgets.QTableWidgetItem(str(user[4])))
-                uiTable.setItem(index, 4, QtWidgets.QTableWidgetItem(str(user[5])))
-
-                uiTable.item(index, 0).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter | QtCore.Qt.AlignmentFlag.AlignVCenter)
-                uiTable.item(index, 1).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter | QtCore.Qt.AlignmentFlag.AlignVCenter)
-                uiTable.item(index, 2).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter | QtCore.Qt.AlignmentFlag.AlignVCenter)
-                uiTable.item(index, 3).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter | QtCore.Qt.AlignmentFlag.AlignVCenter)
-                uiTable.item(index, 4).setTextAlignment(QtCore.Qt.AlignmentFlag.AlignHCenter | QtCore.Qt.AlignmentFlag.AlignVCenter)
-
-                if user[5] == "Employee":
-                    for col in range(uiTable.columnCount()):
-                        item = (uiTable.item(index, col))
-                        font = item.font()
-                        font.setBold(True)
-                        item.setFont(font)
-                        item.setBackground(QtGui.QColor(250, 245, 245))
-
-                index += 1
-
-        except Exception as error:
-            print("(Users.loadUsersTable) an error occurred while trying to load the users table: ", error)
-
-
-    @staticmethod
-    def showAll():
-        """
-
-        Cambia la variable 'show' para mostrar todos los usuarios en la tabla de usuarios.
-
-        :return: None
-
-        """
-        try:
-            Users.show = "All"
-            Users.loadUsersTable()
-        except Exception as error:
-            print("(Users.showAll) an error occurred while trying to change the table's configuration: ", error)
-
-
-    @staticmethod
-    def showEmployees():
-        """
-
-        Cambia la variable 'show' para mostrar solo los usuarios que son empleados en la tabla de usuarios.
-
-        :return: None
-
-        """
-        try:
-            Users.show = "Employee"
-            Users.loadUsersTable()
-        except Exception as error:
-            print("(Users.showEmployees) an error occurred while trying to change the table's configuration: ", error)
-
-
-    @staticmethod
-    def showClients():
-        """
-
-        Cambia la variable 'show' para mostrar solo los usuarios que son clientes en la tabla de usuarios.
-
-        :return: None
-
-        """
-        try:
-            Users.show = "Client"
-            Users.loadUsersTable()
-        except Exception as error:
-            print("(Users.showClients) an error occurred while trying to change the table's configuration: ", error)
+            print("(UsersForm.checkFields) There was an error while trying to check the fields:", error)
 
 
     @staticmethod
@@ -303,7 +209,7 @@ class Users:
                 Globals.ui.rb_userClient.setChecked(True)
 
         except Exception as error:
-            print("(Users.loadUserInfo) There was an error while trying to show the users's info: ", error)
+            print("(UsersForm.loadUserInfo) There was an error while trying to show the users's info: ", error)
 
 
     @staticmethod
@@ -335,7 +241,7 @@ class Users:
                 userType = "Client"
             fieldsData.append(userType)
 
-            if not Users._checkFields():
+            if not UsersForm._checkFields():
                 mbox = QtWidgets.QMessageBox()
                 mbox.setWindowTitle("Error")
                 mbox.setIcon(QtWidgets.QMessageBox.Icon.Critical)
@@ -349,8 +255,8 @@ class Users:
                 mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
                 mbox.setText("The user has been added successfully.")
                 mbox.exec()
-                Users.loadUsersTable()
-                Users.clearUsersFields()
+                UsersTable.loadUsersTable()
+                UsersForm.clearUsersFields()
             else:
                 mbox = QtWidgets.QMessageBox()
                 mbox.setWindowTitle("Error")
@@ -361,7 +267,7 @@ class Users:
                 mbox.exec()
 
         except Exception as error:
-            print("(Users.saveUser) an error occurred while trying to save the new user: ", error)
+            print("(UsersForm.saveUser) an error occurred while trying to save the new user: ", error)
 
 
     @staticmethod
@@ -393,7 +299,7 @@ class Users:
                 userType = "Client"
             fieldsData.append(userType)
 
-            if not Users._checkFields():
+            if not UsersForm._checkFields():
                 mbox = QtWidgets.QMessageBox()
                 mbox.setWindowTitle("Error")
                 mbox.setIcon(QtWidgets.QMessageBox.Icon.Critical)
@@ -418,10 +324,10 @@ class Users:
                 mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
                 mbox.setText("The user's information has been modified successfully.")
                 mbox.exec()
-                Users.loadUsersTable()
+                UsersTable.loadUsersTable()
 
         except Exception as error:
-            print("(Users.modifyUser) There was an error while modifying the customer's data: ", error)
+            print("(UsersForm.modifyUser) There was an error while modifying the customer's data: ", error)
 
 
     @staticmethod
@@ -460,8 +366,8 @@ class Users:
                     successMbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
                     successMbox.setText("The user has been deleted successfully.")
                     successMbox.exec()
-                    Users.loadUsersTable()
-                    Users.clearUsersFields()
+                    UsersTable.loadUsersTable()
+                    UsersForm.clearUsersFields()
                     return
 
                 mbox = QtWidgets.QMessageBox()
@@ -475,7 +381,7 @@ class Users:
                 return
 
         except Exception as error:
-            print("(Users.deleteUser) There was an error while trying to delete the user: ", error)
+            print("(UsersForm.deleteUser) There was an error while trying to delete the user: ", error)
 
 
     @staticmethod
@@ -514,4 +420,4 @@ class Users:
                 radioButton.setAutoExclusive(True)
 
         except Exception as error:
-            print("(Users.clearUsersFields) There was an error while trying to clear the users fields: ", error)
+            print("(UsersForm.clearUsersFields) There was an error while trying to clear the users fields: ", error)
