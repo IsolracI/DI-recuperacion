@@ -290,7 +290,7 @@
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>380</y>
+          <y>400</y>
           <width>910</width>
           <height>428</height>
          </rect>
@@ -406,7 +406,7 @@
         <property name="geometry">
          <rect>
           <x>130</x>
-          <y>300</y>
+          <y>320</y>
           <width>701</width>
           <height>31</height>
          </rect>
@@ -554,7 +554,7 @@
         <property name="geometry">
          <rect>
           <x>11</x>
-          <y>351</y>
+          <y>371</y>
           <width>85</width>
           <height>30</height>
          </rect>
@@ -593,7 +593,7 @@
         <property name="geometry">
          <rect>
           <x>179</x>
-          <y>351</y>
+          <y>371</y>
           <width>85</width>
           <height>30</height>
          </rect>
@@ -629,7 +629,7 @@
         <property name="geometry">
          <rect>
           <x>95</x>
-          <y>351</y>
+          <y>371</y>
           <width>85</width>
           <height>30</height>
          </rect>
@@ -661,43 +661,43 @@
          <bool>false</bool>
         </property>
        </widget>
-       <widget class="QPushButton" name="btn_userTablePrevPage">
+       <widget class="QPushButton" name="btn_usersTablePrevPage">
         <property name="enabled">
          <bool>false</bool>
         </property>
         <property name="geometry">
          <rect>
           <x>920</x>
-          <y>380</y>
+          <y>400</y>
           <width>30</width>
           <height>214</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <pointsize>25</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
+          <pointsize>20</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
          </font>
         </property>
         <property name="text">
          <string/>
         </property>
        </widget>
-       <widget class="QPushButton" name="btn_userTableNextPage">
+       <widget class="QPushButton" name="btn_usersTableNextPage">
         <property name="geometry">
          <rect>
           <x>920</x>
-          <y>594</y>
+          <y>614</y>
           <width>30</width>
           <height>214</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <pointsize>25</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
+          <pointsize>20</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
          </font>
         </property>
         <property name="text">
@@ -724,9 +724,6 @@
         <property name="text">
          <string/>
         </property>
-        <property name="pixmap">
-         <pixmap>../assets/client_icon.png</pixmap>
-        </property>
         <property name="scaledContents">
          <bool>true</bool>
         </property>
@@ -745,9 +742,6 @@
         </property>
         <property name="text">
          <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap>../assets/client_icon.png</pixmap>
         </property>
         <property name="scaledContents">
          <bool>true</bool>
@@ -959,9 +953,9 @@
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>380</y>
-          <width>940</width>
-          <height>450</height>
+          <y>400</y>
+          <width>910</width>
+          <height>428</height>
          </rect>
         </property>
         <property name="font">
@@ -1057,7 +1051,7 @@
         <property name="geometry">
          <rect>
           <x>130</x>
-          <y>340</y>
+          <y>360</y>
           <width>701</width>
           <height>31</height>
          </rect>
@@ -1345,10 +1339,6 @@
         <property name="text">
          <string/>
         </property>
-        <property name="icon">
-         <iconset>
-          <normaloff>../assets/lens_icon.png</normaloff>../assets/lens_icon.png</iconset>
-        </property>
         <property name="iconSize">
          <size>
           <width>24</width>
@@ -1383,15 +1373,54 @@
         <property name="text">
          <string/>
         </property>
-        <property name="icon">
-         <iconset>
-          <normaloff>../assets/lens_icon.png</normaloff>../assets/lens_icon.png</iconset>
-        </property>
         <property name="iconSize">
          <size>
           <width>24</width>
           <height>24</height>
          </size>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_tasksTablePrevPage">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>920</x>
+          <y>400</y>
+          <width>30</width>
+          <height>214</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>20</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_tasksTableNextPage">
+        <property name="geometry">
+         <rect>
+          <x>920</x>
+          <y>614</y>
+          <width>30</width>
+          <height>214</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>20</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
       </widget>

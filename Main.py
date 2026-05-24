@@ -1,10 +1,11 @@
 from pythonUI.MainWindow import Ui_MainWindow
+from src.Tasks.TasksTable import TasksTable
 from src.Users.UsersTable import *
 from src.Users.UsersForm import *
+from src.Tasks.TasksForm import *
 from styles import Styles
 from src.Reports import *
 from src.Events import *
-from src.Tasks import *
 from src import Globals
 import sys
 
@@ -32,7 +33,7 @@ class Main(QtWidgets.QMainWindow):
         ####   ##-## USERS ##-##   ####
                #################
 
-        UsersTable.setTableSettings()
+        UsersTable.setNumPages()
 
         # Table
         UsersTable.loadUsersTable()
@@ -47,8 +48,8 @@ class Main(QtWidgets.QMainWindow):
         Globals.ui.btn_modifyUser.clicked.connect(UsersForm.modifyUser)
         Globals.ui.btn_clearUser.clicked.connect(UsersForm.clearUsersFields)
         Globals.ui.btn_deleteUser.clicked.connect(UsersForm.deleteUser)
-        Globals.ui.btn_userTablePrevPage.clicked.connect(UsersTable.goToPreviousPage)
-        Globals.ui.btn_userTableNextPage.clicked.connect(UsersTable.goToNextPage)
+        Globals.ui.btn_usersTablePrevPage.clicked.connect(UsersTable.goToPreviousPage)
+        Globals.ui.btn_usersTableNextPage.clicked.connect(UsersTable.goToNextPage)
 
         # Fields
         Globals.ui.txt_userName.editingFinished.connect(UsersForm.checkName)
@@ -61,29 +62,31 @@ class Main(QtWidgets.QMainWindow):
         ####   ##-## TASKS ##-##   ####
                #################
 
-        Tasks.loadTasksAssets()
+        TasksForm.loadTasksAssets()
 
         # Table
-        Tasks.loadAllTasks()
-        Globals.ui.tbl_tasks.clicked.connect(Tasks.loadTaskInfo)
+        TasksTable.loadAllTasks()
+        Globals.ui.tbl_tasks.clicked.connect(TasksForm.loadTaskInfo)
         Events.resizeTable(Globals.ui.tbl_tasks)
 
         # Buttons
-        Globals.ui.btn_saveTask.clicked.connect(Tasks.saveTask)
-        Globals.ui.btn_modifyTask.clicked.connect(Tasks.modifyTask)
-        Globals.ui.btn_deleteTask.clicked.connect(Tasks.deleteTask)
-        Globals.ui.btn_reloadTask.clicked.connect(Tasks.loadAllTasks)
-        Globals.ui.btn_clearTask.clicked.connect(Tasks.clearTasksFields)
-        Globals.ui.btn_searchClient.clicked.connect(Tasks.loadClientTasks)
-        Globals.ui.btn_searchEmployee.clicked.connect(Tasks.loadEmployeesTasks)
+        Globals.ui.btn_saveTask.clicked.connect(TasksForm.saveTask)
+        Globals.ui.btn_modifyTask.clicked.connect(TasksForm.modifyTask)
+        Globals.ui.btn_deleteTask.clicked.connect(TasksForm.deleteTask)
+        Globals.ui.btn_reloadTask.clicked.connect(TasksTable.loadAllTasks)
+        Globals.ui.btn_clearTask.clicked.connect(TasksForm.clearTasksFields)
+        Globals.ui.btn_searchClient.clicked.connect(TasksTable.loadClientTasks)
+        Globals.ui.btn_searchEmployee.clicked.connect(TasksTable.loadEmployeesTasks)
+        Globals.ui.btn_tasksTablePrevPage.clicked.connect(TasksTable.goToPreviousPage)
+        Globals.ui.btn_tasksTableNextPage.clicked.connect(TasksTable.goToNextPage)
 
         # Fields
-        Tasks.loadStatusOptions()
-        Globals.ui.txt_employeeName.editingFinished.connect(Tasks.checkEmployee)
-        Globals.ui.txt_clientName.editingFinished.connect(Tasks.checkClient)
-        Globals.ui.txt_taskPrice.editingFinished.connect(Tasks.checkPrice)
-        Globals.ui.txt_taskHours.editingFinished.connect(Tasks.checkTasksHours)
-        Globals.ui.txt_taskService.editingFinished.connect(Tasks.checkService)
+        TasksForm.loadStatusOptions()
+        Globals.ui.txt_employeeName.editingFinished.connect(TasksForm.checkEmployee)
+        Globals.ui.txt_clientName.editingFinished.connect(TasksForm.checkClient)
+        Globals.ui.txt_taskPrice.editingFinished.connect(TasksForm.checkPrice)
+        Globals.ui.txt_taskHours.editingFinished.connect(TasksForm.checkTasksHours)
+        Globals.ui.txt_taskService.editingFinished.connect(TasksForm.checkService)
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)

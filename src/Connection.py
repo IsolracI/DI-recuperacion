@@ -120,7 +120,7 @@ class Connection:
             return usersList
 
         except Exception as error:
-            print("(Connection.getUsersOrderByName) an error occurred while trying to get the users from the database:", error)
+            print("(Connection.getUsersOrderByName) an error occurred while trying to get the users from the database: ", error)
 
 
     @staticmethod
@@ -152,7 +152,7 @@ class Connection:
             return usersList
 
         except Exception as error:
-            print(error)
+            print("(Connection.getUsersPage) an error occurred while trying to get the users from the database: ", error)
 
 
     @staticmethod

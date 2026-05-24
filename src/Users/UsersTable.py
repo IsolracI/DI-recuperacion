@@ -11,7 +11,7 @@ class UsersTable:
     numPages = 1
 
     @staticmethod
-    def setTableSettings():
+    def setNumPages():
         try:
             users = Connection.getUsers(UsersTable.show)
             UsersTable.numPages = max(1,math.ceil(len(users) / UsersTable.rowsPerPage))
@@ -32,8 +32,6 @@ class UsersTable:
                 Globals.ui.btn_userTableNextPage.setEnabled(False)
             else:
                 Globals.ui.btn_userTableNextPage.setEnabled(True)
-
-            UsersTable.loadUsersTable()
 
         except Exception as error:
             print("(UsersTable.checkButtons) an error occurred while trying to check the buttons: ", error)
@@ -96,7 +94,7 @@ class UsersTable:
         try:
             UsersTable.show = "All"
             UsersTable.tableIndex = 0
-            UsersTable.setTableSettings()
+            UsersTable.setNumPages()
             UsersTable._checkButtons()
             UsersTable.loadUsersTable()
         except Exception as error:
@@ -114,7 +112,7 @@ class UsersTable:
         try:
             UsersTable.show = "Employee"
             UsersTable.tableIndex = 0
-            UsersTable.setTableSettings()
+            UsersTable.setNumPages()
             UsersTable._checkButtons()
             UsersTable.loadUsersTable()
         except Exception as error:
@@ -133,7 +131,7 @@ class UsersTable:
         try:
             UsersTable.show = "Client"
             UsersTable.tableIndex = 0
-            UsersTable.setTableSettings()
+            UsersTable.setNumPages()
             UsersTable._checkButtons()
             UsersTable.loadUsersTable()
         except Exception as error:
