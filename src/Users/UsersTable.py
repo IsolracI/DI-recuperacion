@@ -1,5 +1,4 @@
 from PyQt6 import QtGui, QtWidgets, QtCore
-from src.Users.UsersForm import *
 from src.Connection import *
 from src import Globals
 import math
@@ -24,14 +23,14 @@ class UsersTable:
     def _checkButtons():
         try:
             if UsersTable.tableIndex <= 0:
-                Globals.ui.btn_userTablePrevPage.setEnabled(False)
+                Globals.ui.btn_usersTablePrevPage.setEnabled(False)
             else:
-                Globals.ui.btn_userTablePrevPage.setEnabled(True)
+                Globals.ui.btn_usersTablePrevPage.setEnabled(True)
 
             if UsersTable.tableIndex >= UsersTable.numPages - 1:
-                Globals.ui.btn_userTableNextPage.setEnabled(False)
+                Globals.ui.btn_usersTableNextPage.setEnabled(False)
             else:
-                Globals.ui.btn_userTableNextPage.setEnabled(True)
+                Globals.ui.btn_usersTableNextPage.setEnabled(True)
 
         except Exception as error:
             print("(UsersTable.checkButtons) an error occurred while trying to check the buttons: ", error)
@@ -53,7 +52,6 @@ class UsersTable:
             index = 0
             uiTable = Globals.ui.tbl_users
             uiTable.clearContents()
-            uiTable.selectRow(0)
 
             for user in users:
                 uiTable.setRowCount(index + 1)

@@ -1,7 +1,10 @@
+from src.Tasks.TasksTable import *
 from PyQt6 import QtCore, QtGui
 from src.Connection import *
 from src import Globals
 import re
+
+
 
 class TasksForm:
 
@@ -25,7 +28,7 @@ class TasksForm:
             Globals.ui.btn_searchClient.setIcon(lensIcon)
 
         except Exception as error:
-            print("(Tasks.loadAssets) An error occurred while trying load the assets: ", error)
+            print("(TasksForm.loadAssets) An error occurred while trying load the assets: ", error)
 
     @staticmethod
     def loadStatusOptions():
@@ -111,7 +114,7 @@ class TasksForm:
                 Globals.ui.txt_taskPrice.setPlaceholderText("Format: 0.00")
 
         except Exception as error:
-            print("(Tasks.checkPrice) An error occurred while trying check the price: ", error)
+            print("(TasksForm.checkPrice) An error occurred while trying check the price: ", error)
 
 
     @staticmethod
@@ -137,7 +140,7 @@ class TasksForm:
                 Globals.ui.txt_taskService.setStyleSheet("background-color: rgb(255, 255, 220)")
 
         except Exception as error:
-            print("(Tasks.checkService) An error occurred while trying check the service: ", error)
+            print("(TasksForm.checkService) An error occurred while trying check the service: ", error)
 
 
     @staticmethod
@@ -171,7 +174,7 @@ class TasksForm:
                 Globals.ui.txt_taskHours.setStyleSheet("background-color: rgb(255, 255, 220)")
 
         except Exception as error:
-            print("(Tasks.checkTaskHours) An error occurred while trying check the hours: ", error)
+            print("(TasksForm.checkTaskHours) An error occurred while trying check the hours: ", error)
 
 
     @staticmethod
@@ -200,7 +203,7 @@ class TasksForm:
                 return False
 
         except Exception as error:
-            print("(Tasks.checkFields) An error occurred while trying to check the fields: ", error)
+            print("(TasksForm.checkFields) An error occurred while trying to check the fields: ", error)
 
 
     @staticmethod
@@ -236,7 +239,7 @@ class TasksForm:
                     widgets[i].setCurrentText(str(taskInfo[i]))
 
         except Exception as error:
-            print("(Tasks.loadTaskInfo) an error occurred while trying to load the tasks' info:", error)
+            print("(TasksForm.loadTaskInfo) an error occurred while trying to load the tasks' info:", error)
 
 
     @staticmethod
@@ -284,7 +287,7 @@ class TasksForm:
                 mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
                 mbox.setText("The task has been added successfully.")
                 mbox.exec()
-                TasksForm.loadAllTasks()
+                TasksTable.loadAllTasks()
                 TasksForm.clearTasksFields()
             else:
                 mbox = QtWidgets.QMessageBox()
@@ -294,7 +297,7 @@ class TasksForm:
                 mbox.exec()
 
         except Exception as error:
-            print("(Tasks.saveTask) an error occurred while trying to save the new task: ", error)
+            print("(TasksForm.saveTask) an error occurred while trying to save the new task: ", error)
 
 
     @staticmethod
@@ -355,10 +358,10 @@ class TasksForm:
                 mbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
                 mbox.setText("The task's information has been modified successfully.")
                 mbox.exec()
-                TasksForm.loadAllTasks()
+                TasksTable.loadAllTasks()
 
         except Exception as error:
-            print("(Tasks.modifyTask) an error occurred while trying to modify the task: ", error)
+            print("(TasksForm.modifyTask) an error occurred while trying to modify the task: ", error)
 
 
     @staticmethod
@@ -397,7 +400,7 @@ class TasksForm:
                     successMbox.setIcon(QtWidgets.QMessageBox.Icon.Information)
                     successMbox.setText("The task has been deleted successfully.")
                     successMbox.exec()
-                    TasksForm.loadAllTasks()
+                    TasksTable.loadAllTasks()
                     TasksForm.clearTasksFields()
                     return
 
@@ -412,7 +415,7 @@ class TasksForm:
                 return
 
         except Exception as error:
-            print("(Tasks.deleteTask) an error occurred while trying to delete the task: ", error)
+            print("(TasksForm.deleteTask) an error occurred while trying to delete the task: ", error)
 
 
     @staticmethod
@@ -445,4 +448,4 @@ class TasksForm:
             Globals.ui.cmb_taskStatus.setCurrentIndex(0)
 
         except Exception as error:
-            print("(Tasks.clearTasksFields) an error occurred while trying to clear the fields:", error)
+            print("(TasksForm.clearTasksFields) an error occurred while trying to clear the fields:", error)

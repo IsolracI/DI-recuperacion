@@ -41,6 +41,15 @@ QPushButton:hover {
     background-color: #D0D7DE;
 }
 
+QPushButton:pressed {
+    background-color: #BFC7CF;
+}
+
+QPushButton:disabled {
+    background-color: #E5E7EA;
+    color: #9AA4AE;
+}
+
 /* BOTÓN PRINCIPAL (ej: guardar) */
 QPushButton#btn_saveUser,
 QPushButton#btn_saveTask{
@@ -81,6 +90,37 @@ QPushButton#btn_showEmployees:hover,
 QPushButton#btn_showClients:hover {
     background-color: #1A73E8;
 }
+
+
+/* =======================
+   BOTONES PAGINACIÓN
+======================= */
+QPushButton#btn_usersTableNextPage,
+QPushButton#btn_usersTablePrevPage,
+QPushButton#btn_tasksTableNextPage,
+QPushButton#btn_tasksTablePrevPage{
+    color: white;
+    border: 1px solid;
+    border-color: #D0D7DE;
+    border-radius: 0px;
+    background-color: #2D8CFF;
+    color: white;
+}
+
+QPushButton#btn_usersTableNextPage:hover,
+QPushButton#btn_usersTablePrevPage:hover,
+QPushButton#btn_tasksTableNextPage:hover,
+QPushButton#btn_tasksTablePrevPage:hover {
+    background-color: #1A73E8;
+}
+
+QPushButton#btn_usersTableNextPage:disabled,
+QPushButton#btn_usersTablePrevPage:disabled,
+QPushButton#btn_tasksTableNextPage:disabled,
+QPushButton#btn_tasksTablePrevPage:disabled {
+    background-color: #145CC0;
+}
+
 
 /* =======================
    TABLE
