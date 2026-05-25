@@ -42,6 +42,7 @@ class Reports:
         except Exception as e:
             print("(Reports.reportHeader) an error occurred while trying to make the header", e)
 
+
     @staticmethod
     def reportFooter(reportCanvas, title):
         """

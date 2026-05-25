@@ -4,8 +4,6 @@ from src.Connection import *
 from src import Globals
 import re
 
-
-
 class TasksForm:
 
     @staticmethod
@@ -29,6 +27,7 @@ class TasksForm:
 
         except Exception as error:
             print("(TasksForm.loadAssets) An error occurred while trying load the assets: ", error)
+
 
     @staticmethod
     def loadStatusOptions():

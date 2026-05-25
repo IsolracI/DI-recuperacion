@@ -9,5 +9,7 @@ src
    Globals
    Main
    Reports
-   Tasks
-   Users
+   src.Tasks.TasksForm
+   src.Tasks.TasksTable
+   src.Users.UsersForm
+   src.Users.UsersTable

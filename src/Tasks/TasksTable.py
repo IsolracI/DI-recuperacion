@@ -11,6 +11,14 @@ class TasksTable:
 
     @staticmethod
     def setNumPages():
+        """
+
+        Calcula el número total de páginas necesarias para mostrar
+        todas las tareas en la tabla.
+
+        :return: None
+
+        """
         try:
             TasksTable.numPages = max(1, math.ceil(len(TasksTable.tasks) / TasksTable.rowsPerPage))
 
@@ -20,6 +28,20 @@ class TasksTable:
 
     @staticmethod
     def _checkButtons():
+        """
+
+        Habilita o deshabilita los botones de navegación
+        de la tabla de tareas según la página actual.
+
+        - Deshabilita el botón de página anterior si el usuario
+          se encuentra en la primera página.
+
+        - Deshabilita el botón de página siguiente si el usuario
+          se encuentra en la última página.
+
+        :return: None
+
+        """
         try:
             if TasksTable.tableIndex <= 0:
                 Globals.ui.btn_tasksTablePrevPage.setEnabled(False)
@@ -171,6 +193,18 @@ class TasksTable:
 
     @staticmethod
     def goToNextPage():
+        """
+
+        Cambia a la siguiente página de la tabla de tareas.
+
+        Incrementa el índice de página actual si todavía
+        existen más páginas disponibles. Después actualiza
+        el estado de los botones de navegación y recarga
+        el contenido de la tabla.
+
+        :return: None
+
+        """
         try:
             if TasksTable.tableIndex < TasksTable.numPages - 1:
                 TasksTable.tableIndex += 1
@@ -184,6 +218,18 @@ class TasksTable:
 
     @staticmethod
     def goToPreviousPage():
+        """
+
+        Cambia a la página anterior de la tabla de tareas.
+
+        Reduce el índice de página actual si no se encuentra
+        ya en la primera página. Después actualiza el estado
+        de los botones de navegación y recarga el contenido
+        de la tabla.
+
+        :return: None
+
+        """
         try:
             if TasksTable.tableIndex > 0:
                 TasksTable.tableIndex -= 1

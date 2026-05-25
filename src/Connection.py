@@ -125,6 +125,26 @@ class Connection:
 
     @staticmethod
     def getUsersPage(limit, offset, userType="All"):
+        """
+
+        Obtiene una página de usuarios de la base de datos.
+
+        Permite cargar únicamente una cantidad limitada de registros
+        utilizando paginación mediante las cláusulas ``LIMIT`` y ``OFFSET``.
+
+        :param limit: Número máximo de usuarios que se devolverán.
+        :type limit: int
+
+        :param offset: Índice por el que se empezará la busqueda.
+        :type offset: int
+
+        :param userType: Tipo de usuario que se desea obtener.
+        :type userType: str
+
+        :return: Lista con los datos de los usuarios encontrados
+        :rtype: list[list]
+
+        """
         try:
             usersList = []
             query = QtSql.QSqlQuery()

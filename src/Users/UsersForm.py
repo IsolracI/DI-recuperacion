@@ -81,6 +81,7 @@ class UsersForm:
         except Exception as error:
             print("(UsersForm.checkMail) There was an error while trying to check the email: ", error)
 
+
     @staticmethod
     def checkMobile(number):
         """
