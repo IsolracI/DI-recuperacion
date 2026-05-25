@@ -1,4 +1,4 @@
-from src.Users.UsersTable import *
+from src.users.UsersTable import *
 from src import Globals
 import re
 

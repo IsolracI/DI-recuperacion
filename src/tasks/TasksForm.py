@@ -1,4 +1,4 @@
-from src.Tasks.TasksTable import *
+from src.tasks.TasksTable import *
 from PyQt6 import QtCore, QtGui
 from src.Connection import *
 from src import Globals
